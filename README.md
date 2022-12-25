@@ -34,21 +34,21 @@ It contains details about the generic concepts in Machine Learning. Below is the
 * Knowledge distillation
 
 ## Regularization
-* Regularization is one of the solution for the overfitting problem. This technique prevents the model from overfitting by adding extra              information to it.
+* Regularization is one of the solution for the overfitting problem. This technique prevents the model from overfitting by adding extra information to it.
 * In the Regularization technique, we reduce the magnitude of the independent variables by keeping the same number of variables.
 * There are 2 techniques of regularization:
-    - Ridge Regression: 
-        - It is also called L2-norm.
-        - It is one of the types of linear regression in which we introduce a small amount of bias, known as Ridge regression penalty so that we can get better long-term predictions.
-        - In this technique, the cost function is altered by adding the penalty term (shrinkage term), which multiplies the lambda with the squared weight of each individual feature. Therefore, the optimization function(cost function) becomes:
-        <img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im1.png" width="500">
+    * Ridge Regression: 
+        * It is also called L2-norm.
+        * It is one of the types of linear regression in which we introduce a small amount of bias, known as Ridge regression penalty so that we can get better long-term predictions.
+        * In this technique, the cost function is altered by adding the penalty term (shrinkage term), which multiplies the lambda with the squared weight of each individual feature. Therefore, the optimization function(cost function) becomes:
+        <img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im1.png" width="1000">
         In the above equation, the penalty term regularizes the coefficients of the model, and hence ridge regression reduces the magnitudes of the coefficients that help to decrease the complexity of the model.
-        -  Application
-            - When we have the independent variables which are having high collinearity (problem of ) between them, at that time general linear or polynomial regression will fail so to solve such problems, Ridge regression can be used.
-            - If we have more parameters than the samples, then Ridge regression helps to solve the problems.  
-        - Limitations
-            - Not helps in Feature Selection: It decreases the complexity of a model but does not reduce the number of independent variables since it never leads to a coefficient being zero rather only minimizes it. Hence, this technique is not good for feature selection.
-            - Model Interpretability: Its disadvantage is model interpretability since it will shrink the coefficients for least important predictors, very close to zero but it will never make them exactly zero. In other words, the final model will include all the independent variables, also known as predictors.
+        *  Application
+            * When we have the independent variables which are having high collinearity (problem of ) between them, at that time general linear or polynomial regression will fail so to solve such problems, Ridge regression can be used.
+            * If we have more parameters than the samples, then Ridge regression helps to solve the problems.  
+        * Limitations
+            * Not helps in Feature Selection: It decreases the complexity of a model but does not reduce the number of independent variables since it never leads to a coefficient being zero rather only minimizes it. Hence, this technique is not good for feature selection.
+            * Model Interpretability: Its disadvantage is model interpretability since it will shrink the coefficients for least important predictors, very close to zero but it will never make them exactly zero. In other words, the final model will include all the independent variables, also known as predictors.
 
     * Lasso Regression
         * It stands for Least Absolute and Selection Operator. It is called L1-norm.
