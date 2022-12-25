@@ -43,7 +43,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
         * In this technique, the cost function is altered by adding the penalty term (shrinkage term), which multiplies the lambda with the squared weight of each individual feature. Therefore, the optimization function(cost function) becomes:
         <img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im1.png" width="1000">
         In the above equation, the penalty term regularizes the coefficients of the model, and hence ridge regression reduces the magnitudes of the coefficients that help to decrease the complexity of the model.
-        *  Application
+        * Application
             * When we have the independent variables which are having high collinearity (problem of ) between them, at that time general linear or polynomial regression will fail so to solve such problems, Ridge regression can be used.
             * If we have more parameters than the samples, then Ridge regression helps to solve the problems.  
         * Limitations
