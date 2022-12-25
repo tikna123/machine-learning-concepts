@@ -152,12 +152,44 @@ We can use different metrics to evaluate machine learning models. The choice of 
     Suppose the Model classifies that important email that you are desperately waiting for, as Spam(case of False positive). Now, in this situation, this is pretty bad than classifying a spam email as important or not spam since in that case, we can still go ahead and manually delete it and it’s not a pain if it happens once a while. So in case of Spam email classification, minimising False positives is more important than False Negatives.
     
     ## Accuracy
-    * Accuracy in classification problems is the number of correct predictions made by the model over all kinds of predictions made. 
-
-
+    * Accuracy in classification problems is the number of correct predictions made by the model over all kinds of predictions made.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im9.PNG) <br/>
+    In the Numerator, are our correct predictions (True positives and True Negatives)(Marked as red in the fig above) and in the denominator, are the kind of all predictions made by the algorithm(Right as well as wrong ones).
+    **When to use accuracy**: Accuracy is a good measure when the target variable classes in the data are nearly balanced.
+    **When NOT to use Accuracy**: Accuracy should NEVER be used as a measure when the target variable classes in the data are a majority of one class.
     
-
-
-
-
-
+    ## Precision
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im10.PNG) <br/>
+    ## Recall
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im11.PNG) <br/>
+    
+    ## F1-Score: 
+    Harmonic mean of precision and recall.
+    F1 Score = 2 * Precision * Recall / (Precision + Recall)
+    If one number is really small between precision and recall, the F1 Score kind of raises a flag and is more closer to the smaller number than the bigger one, giving the model an appropriate score rather than just an arithmetic mean.
+    
+    ## Area under ROC curve
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im12.PNG) <br/>
+    * The AUC ROC value is between 0 to 1.
+    * For a model which gives class as output, will be represented as a single point in ROC plot.
+    * In case of probabilistic model, we were fortunate enough to get a single number which was AUC-ROC. But still, we need to look at the entire curve to make conclusive decisions. It is also possible that one model performs better in some region and other performs better in other.
+    * Each point in the ROC curve corresponds to model result(TPR and FPR) given some threshold value.
+    * AUC is scale-invariant. It measures how well predictions are ranked, rather than their absolute values.
+    * AUC is classification-threshold-invariant. It measures the quality of the model's predictions irrespective of what classification threshold is chosen.
+    * Details
+        * https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/
+        * https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc
+        * https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5
+        * https://towardsdatascience.com/roc-curve-and-auc-from-scratch-in-numpy-visualized-2612bb9459ab (how to calculate AUC using python)
+        * https://blog.revolutionanalytics.com/2016/08/roc-curves-in-two-lines-of-code.html
+        * https://blog.revolutionanalytics.com/2016/11/calculating-auc.html
+        
+    ## PR curve
+     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im13.PNG) <br/>
+    * PR curve is the graph between precision and recall where precision is on y axis and recall is on the x axis. A good PR curve has greator AUC.
+    * The Precision-Recall AUC is just like the ROC AUC, in that it summarizes the curve with a range of threshold values as a single score. The score can then be used as a point of comparison between different models on a binary classification problem where a score of 1.0 represents a model with perfect skill.
+    
+    ## Tips about when to use which metrics
+    * For Imbalance dataset never used accuracy.
+    * When you have imbalance datasets with +ve class as minority class, better to use PR curve as compare to ROC, as ROC doesn't give much information about the minority class prediction, even if some classifier gives lot of FP for minority class, the ROC will look just fine. ROC cuver is better than PR cuver when you have imbalance datasets.
+    * Use ROC when the positives are the majority or switch the labels and use precision and recall.
