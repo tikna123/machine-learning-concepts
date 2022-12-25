@@ -37,28 +37,28 @@ It contains details about the generic concepts in Machine Learning. Below is the
 * Regularization is one of the solution for the overfitting problem. This technique prevents the model from overfitting by adding extra information to it.
 * In the Regularization technique, we reduce the magnitude of the independent variables by keeping the same number of variables.
 * There are 2 techniques of regularization:
-    * **Ridge Regression**: 
+    ## Ridge Regression: 
         * It is also called L2-norm.
         * It is one of the types of linear regression in which we introduce a small amount of bias, known as Ridge regression penalty so that we can get better long-term predictions.
         * In this technique, the cost function is altered by adding the penalty term (shrinkage term), which multiplies the lambda with the squared weight of each individual feature. Therefore, the optimization function(cost function) becomes:
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im1.png) <br/>
         In the above equation, the penalty term regularizes the coefficients of the model, and hence ridge regression reduces the magnitudes of the coefficients that help to decrease the complexity of the model.
-        * **Application**
+        ### Application
             * When we have the independent variables which are having high collinearity (problem of ) between them, at that time general linear or polynomial regression will fail so to solve such problems, Ridge regression can be used.
             * If we have more parameters than the samples, then Ridge regression helps to solve the problems.  
-        * **Limitations**
+        ### Limitations
             * Not helps in Feature Selection: It decreases the complexity of a model but does not reduce the number of independent variables since it never leads to a coefficient being zero rather only minimizes it. Hence, this technique is not good for feature selection.
             * Model Interpretability: Its disadvantage is model interpretability since it will shrink the coefficients for least important predictors, very close to zero but it will never make them exactly zero. In other words, the final model will include all the independent variables, also known as predictors.
 
-    * **Lasso Regression**
+    ## Lasso Regression
         * It stands for Least Absolute and Selection Operator. It is called L1-norm.
         * It is similar to the Ridge Regression except that the penalty term includes the absolute weights instead of a square of weights. Therefore, the optimization function becomes:
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im2.png) <br/>
         * In this technique, the L1 penalty has the eﬀect of forcing some of the coeﬃcient estimates to be exactly equal to zero which means there is a complete removal of some of the features for model evaluation when the tuning parameter λ is suﬃciently large. Therefore, the lasso method also performs Feature selection and is said to yield sparse models.
-        * Limitation of Lasso Regression:
+        ### Limitation of Lasso Regression:
             * Problems with some types of Dataset: If the number of predictors is greater than the number of data points, Lasso will pick at most n predictors as non-zero, even if all predictors are relevant.
             * Multicollinearity Problem: If there are two or more highly collinear variables then LASSO regression selects one of them randomly which is not good for the interpretation of our model.
-    * **Difference between Ridge and lasso regression**
+    ## Difference between Ridge and lasso regression
         * Ridge regression helps us to reduce only the overfitting in the model while keeping all the features present in the model. It reduces the complexity of the model by shrinking the coefficients whereas Lasso regression helps in reducing the problem of overfitting in the model as well as automatic feature selection.
         * Lasso Regression tends to make coefficients to absolute zero whereas Ridge regression never sets the value of coefficient to absolute zero.
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im3.png) <br/>
@@ -115,17 +115,14 @@ It contains details about the generic concepts in Machine Learning. Below is the
 # Loss functions
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im5.png) <br/>
 * Loss functions define an objective against which the performance of your model is measured, and the setting of weight parameters learned by the model is determined by minimizing a chosen loss function. There are many loss functions such as:
-    * Mean Squared Loss(MSE)
-    * cross-entrophy loss
-    * Hinge loss
+    ## Mean Squared Loss(MSE)
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im6.png) <br/>
+    ## cross-entrophy loss
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im7.PNG) <br/>
+    ## Hinge loss
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.PNG) <br/>
 * Given a particular model, each loss function has particular properties that make it interesting for example, the (L2-regularized) hinge loss comes with the maximum-margin property, and the mean-squared error when used in conjunction with linear regression comes with convexity guarantees.
-    * **Mean squared loss(MSE)**:
-![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im6.png) <br/>
-    * **Cross-Entrophy loss**
-![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im7.PNG) <br/>
-    * **Hinge loss**
-![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.PNG) <br/>
-
+    
 # Evaluation Metrics
 We can use different metrics to evaluate machine learning models. The choice of metric completely depends on the type of model and the implementation plan of the model.Here, we are going to only focus on classification evaluation metrics. Following are the list of important evaluation metrics:
 * Confusion metrics
@@ -135,18 +132,18 @@ We can use different metrics to evaluate machine learning models. The choice of 
 * Area under ROC-Curve
 * PR Curve
 
-    <font size="5"> Confusion metrics </font>
+    ## Confusion metrics
     * The Confusion matrix is one of the most intuitive and easiest (unless of course, you are not confused)metrics used for finding the correctness and accuracy of the model.
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.PNG) <br/>
     The Confusion matrix in itself is not a performance measure as such, but almost all of the performance metrics are based on Confusion Matrix and the numbers inside it.
-    * Terms associated with Confusion metrics
-        * **True Positives (TP)**: True positives are the cases when the actual class of the data point was 1(True) and the predicted is also 1(True)
-        * **True Negatives (TN)**: True negatives are the cases when the actual class of the data point was 0(False) and the predicted is also 0(False
-        * **False Positives (FP)**: False positives are the cases when the actual class of the data point was 0(False) and the predicted is 1(True). False is because the model has predicted incorrectly and positive because the class predicted was a positive one. (1)
-        * **False Negatives (FN)**: False negatives are the cases when the actual class of the data point was 1(True) and the predicted is 0(False). False is because the model has predicted incorrectly and negative because the class predicted was a negative one. (0)
-    * When to minimise what?
-    We know that there will be some error associated with every model that we use for predicting the true class of the target variable. This will result in False Positives and False Negatives(i.e Model classifying things incorrectly as compared to the actual class). 
-    There’s no hard rule that says what should be minimised in all the situations. It purely depends on the business needs and the context of the problem you are trying to solve. Based on that, we might want to minimise either False Positives or False negatives. <br/>
+        * Terms associated with Confusion metrics
+            * **True Positives (TP)**: True positives are the cases when the actual class of the data point was 1(True) and the predicted is also 1(True)
+            * **True Negatives (TN)**: True negatives are the cases when the actual class of the data point was 0(False) and the predicted is also 0(False
+            * **False Positives (FP)**: False positives are the cases when the actual class of the data point was 0(False) and the predicted is 1(True). False is because the model has predicted incorrectly and positive because the class predicted was a positive one. (1)
+            * **False Negatives (FN)**: False negatives are the cases when the actual class of the data point was 1(True) and the predicted is 0(False). False is because the model has predicted incorrectly and negative because the class predicted was a negative one. (0)
+        * When to minimise what?
+        We know that there will be some error associated with every model that we use for predicting the true class of the target variable. This will result in False Positives and False Negatives(i.e Model classifying things incorrectly as compared to the actual class). 
+        There’s no hard rule that says what should be minimised in all the situations. It purely depends on the business needs and the context of the problem you are trying to solve. Based on that, we might want to minimise either False Positives or False negatives. <br/>
     
     1. **Minimising False Negatives**: Let’s say in our cancer detection problem example, out of 100 people, only 5 people have cancer. In this case, we want to correctly classify all the cancerous patients as even a very BAD model(Predicting everyone as NON-Cancerous) will give us a 95% accuracy(will come to what accuracy is). But, in order to capture all cancer cases, we might end up making a classification when the person actually NOT having cancer is classified as Cancerous. This might be okay as it is less dangerous than NOT identifying/capturing a cancerous patient since we will anyway send the cancer cases for further examination and reports. But missing a cancer patient will be a huge mistake as no further examination will be done on them.
     
@@ -154,7 +151,7 @@ We can use different metrics to evaluate machine learning models. The choice of 
     Let’s say that you are expecting an important email like hearing back from a recruiter or awaiting an admit letter from a university. Let’s assign a label to the target variable and say,1: “Email is a spam” and 0:”Email is not a spam”
     Suppose the Model classifies that important email that you are desperately waiting for, as Spam(case of False positive). Now, in this situation, this is pretty bad than classifying a spam email as important or not spam since in that case, we can still go ahead and manually delete it and it’s not a pain if it happens once a while. So in case of Spam email classification, minimising False positives is more important than False Negatives.
     
-    <font size="5"> Accuracy </font>
+    ## Accuracy
     * Accuracy in classification problems is the number of correct predictions made by the model over all kinds of predictions made. 
 
 
