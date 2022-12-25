@@ -33,7 +33,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
     * How to decide sample size(when to stop experiments?)
 * Knowledge distillation
 
-## Regularization
+# Regularization
 * Regularization is one of the solution for the overfitting problem. This technique prevents the model from overfitting by adding extra information to it.
 * In the Regularization technique, we reduce the magnitude of the independent variables by keeping the same number of variables.
 * There are 2 techniques of regularization:
