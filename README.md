@@ -41,7 +41,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
         * It is also called L2-norm.
         * It is one of the types of linear regression in which we introduce a small amount of bias, known as Ridge regression penalty so that we can get better long-term predictions.
         * In this technique, the cost function is altered by adding the penalty term (shrinkage term), which multiplies the lambda with the squared weight of each individual feature. Therefore, the optimization function(cost function) becomes:
-        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im1.png)
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im1.png) <br/>
         In the above equation, the penalty term regularizes the coefficients of the model, and hence ridge regression reduces the magnitudes of the coefficients that help to decrease the complexity of the model.
         * Application
             * When we have the independent variables which are having high collinearity (problem of ) between them, at that time general linear or polynomial regression will fail so to solve such problems, Ridge regression can be used.
