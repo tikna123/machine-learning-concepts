@@ -33,7 +33,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
     * How to decide sample size(when to stop experiments?)
 * Knowledge distillation
 
-# Regularization
+## Regularization
 * Regularization is one of the solution for the overfitting problem. This technique prevents the model from overfitting by adding extra information to it.
 * In the Regularization technique, we reduce the magnitude of the independent variables by keeping the same number of variables.
 * There are 2 techniques of regularization:
@@ -125,12 +125,37 @@ It contains details about the generic concepts in Machine Learning. Below is the
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im7.PNG) <br/>
     * **Hinge loss**
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.PNG) <br/>
-    * **Details**
-        * https://rohanvarma.me/Loss-Functions/
-        * https://jamesmccaffrey.wordpress.com/2013/11/05/why-you-should-use-cross-entropy-error-instead-of-classification-error-or-mean-squared-error-for-neural-network-classifier-training/
-
 
 # Evaluation Metrics
+We can use different metrics to evaluate machine learning models. The choice of metric completely depends on the type of model and the implementation plan of the model.Here, we are going to only focus on classification evaluation metrics. Following are the list of important evaluation metrics:
+* Confusion metrics
+* Accuracy
+* Precision/Recall
+* F1-Score
+* Area under ROC-Curve
+* PR Curve
+
+    <font size="5"> **Confusion metrics** </font>
+    * The Confusion matrix is one of the most intuitive and easiest (unless of course, you are not confused)metrics used for finding the correctness and accuracy of the model.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.PNG) <br/>
+    The Confusion matrix in itself is not a performance measure as such, but almost all of the performance metrics are based on Confusion Matrix and the numbers inside it.
+    * Terms associated with Confusion metrics
+        * **True Positives (TP)**: True positives are the cases when the actual class of the data point was 1(True) and the predicted is also 1(True)
+        * **True Negatives (TN)**: True negatives are the cases when the actual class of the data point was 0(False) and the predicted is also 0(False
+        * **False Positives (FP)**: False positives are the cases when the actual class of the data point was 0(False) and the predicted is 1(True). False is because the model has predicted incorrectly and positive because the class predicted was a positive one. (1)
+        * **False Negatives (FN)**: False negatives are the cases when the actual class of the data point was 1(True) and the predicted is 0(False). False is because the model has predicted incorrectly and negative because the class predicted was a negative one. (0)
+    * When to minimise what?
+    We know that there will be some error associated with every model that we use for predicting the true class of the target variable. This will result in False Positives and False Negatives(i.e Model classifying things incorrectly as compared to the actual class). 
+    There’s no hard rule that says what should be minimised in all the situations. It purely depends on the business needs and the context of the problem you are trying to solve. Based on that, we might want to minimise either False Positives or False negatives. <br/>
+    
+    1. **Minimising False Negatives**: Let’s say in our cancer detection problem example, out of 100 people, only 5 people have cancer. In this case, we want to correctly classify all the cancerous patients as even a very BAD model(Predicting everyone as NON-Cancerous) will give us a 95% accuracy(will come to what accuracy is). But, in order to capture all cancer cases, we might end up making a classification when the person actually NOT having cancer is classified as Cancerous. This might be okay as it is less dangerous than NOT identifying/capturing a cancerous patient since we will anyway send the cancer cases for further examination and reports. But missing a cancer patient will be a huge mistake as no further examination will be done on them.
+    
+    2. **Minimising False Positives**: For better understanding of False Positives, let’s use a different example where the model classifies whether an email is spam or not
+    Let’s say that you are expecting an important email like hearing back from a recruiter or awaiting an admit letter from a university. Let’s assign a label to the target variable and say,1: “Email is a spam” and 0:”Email is not a spam”
+    Suppose the Model classifies that important email that you are desperately waiting for, as Spam(case of False positive). Now, in this situation, this is pretty bad than classifying a spam email as important or not spam since in that case, we can still go ahead and manually delete it and it’s not a pain if it happens once a while. So in case of Spam email classification, minimising False positives is more important than False Negatives.
+    **Accuracy**
+    * Accuracy in classification problems is the number of correct predictions made by the model over all kinds of predictions made. 
+
 
     
 
