@@ -153,15 +153,15 @@ We can use different metrics to evaluate machine learning models. The choice of 
     
     ## Accuracy
     * Accuracy in classification problems is the number of correct predictions made by the model over all kinds of predictions made.
-    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im9.PNG) <br/>
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im9.png) <br/>
     In the Numerator, are our correct predictions (True positives and True Negatives)(Marked as red in the fig above) and in the denominator, are the kind of all predictions made by the algorithm(Right as well as wrong ones).
     **When to use accuracy**: Accuracy is a good measure when the target variable classes in the data are nearly balanced.
     **When NOT to use Accuracy**: Accuracy should NEVER be used as a measure when the target variable classes in the data are a majority of one class.
     
     ## Precision
-    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im10.PNG) <br/>
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im10.png) <br/>
     ## Recall
-    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im11.PNG) <br/>
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im11.png) <br/>
     
     ## F1-Score: 
     Harmonic mean of precision and recall.
@@ -169,7 +169,7 @@ We can use different metrics to evaluate machine learning models. The choice of 
     If one number is really small between precision and recall, the F1 Score kind of raises a flag and is more closer to the smaller number than the bigger one, giving the model an appropriate score rather than just an arithmetic mean.
     
     ## Area under ROC curve
-    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im12.PNG) <br/>
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im12.png) <br/>
     * The AUC ROC value is between 0 to 1.
     * For a model which gives class as output, will be represented as a single point in ROC plot.
     * In case of probabilistic model, we were fortunate enough to get a single number which was AUC-ROC. But still, we need to look at the entire curve to make conclusive decisions. It is also possible that one model performs better in some region and other performs better in other.
@@ -185,7 +185,7 @@ We can use different metrics to evaluate machine learning models. The choice of 
         * https://blog.revolutionanalytics.com/2016/11/calculating-auc.html
         
     ## PR curve
-     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im13.PNG) <br/>
+     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im13.png) <br/>
     * PR curve is the graph between precision and recall where precision is on y axis and recall is on the x axis. A good PR curve has greator AUC.
     * The Precision-Recall AUC is just like the ROC AUC, in that it summarizes the curve with a range of threshold values as a single score. The score can then be used as a point of comparison between different models on a binary classification problem where a score of 1.0 represents a model with perfect skill.
     
