@@ -121,9 +121,9 @@ It contains details about the generic concepts in Machine Learning. Below is the
 * Given a particular model, each loss function has particular properties that make it interesting - for example, the (L2-regularized) hinge loss comes with the maximum-margin property, and the mean-squared error when used in conjunction with linear regression comes with convexity guarantees.
     ## Mean squared loss(MSE):
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im6.png) <br/>
-    ## Cross-Entrophy loss
+## Cross-Entrophy loss
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im7.png) <br/>
-    ## Hinge loss
+## Hinge loss
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.png) <br/>
     
 
