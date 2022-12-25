@@ -135,7 +135,7 @@ We can use different metrics to evaluate machine learning models. The choice of 
 * Area under ROC-Curve
 * PR Curve
 
-    <font size="5"> **Confusion metrics** </font>
+    <font size="5"> Confusion metrics </font>
     * The Confusion matrix is one of the most intuitive and easiest (unless of course, you are not confused)metrics used for finding the correctness and accuracy of the model.
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.PNG) <br/>
     The Confusion matrix in itself is not a performance measure as such, but almost all of the performance metrics are based on Confusion Matrix and the numbers inside it.
@@ -153,7 +153,8 @@ We can use different metrics to evaluate machine learning models. The choice of 
     2. **Minimising False Positives**: For better understanding of False Positives, let’s use a different example where the model classifies whether an email is spam or not
     Let’s say that you are expecting an important email like hearing back from a recruiter or awaiting an admit letter from a university. Let’s assign a label to the target variable and say,1: “Email is a spam” and 0:”Email is not a spam”
     Suppose the Model classifies that important email that you are desperately waiting for, as Spam(case of False positive). Now, in this situation, this is pretty bad than classifying a spam email as important or not spam since in that case, we can still go ahead and manually delete it and it’s not a pain if it happens once a while. So in case of Spam email classification, minimising False positives is more important than False Negatives.
-    **Accuracy**
+    
+    <font size="5"> Accuracy </font>
     * Accuracy in classification problems is the number of correct predictions made by the model over all kinds of predictions made. 
 
 
