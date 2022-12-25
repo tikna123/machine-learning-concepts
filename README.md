@@ -53,7 +53,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
     * Lasso Regression
         * It stands for Least Absolute and Selection Operator. It is called L1-norm.
         * It is similar to the Ridge Regression except that the penalty term includes the absolute weights instead of a square of weights. Therefore, the optimization function becomes:
-        <img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im1.png" width="500">
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im2.png) <br/>
         * In this technique, the L1 penalty has the eﬀect of forcing some of the coeﬃcient estimates to be exactly equal to zero which means there is a complete removal of some of the features for model evaluation when the tuning parameter λ is suﬃciently large. Therefore, the lasso method also performs Feature selection and is said to yield sparse models.
         * Limitation of Lasso Regression:
             * Problems with some types of Dataset: If the number of predictors is greater than the number of data points, Lasso will pick at most n predictors as non-zero, even if all predictors are relevant.
@@ -61,7 +61,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
     * Difference between Ridge and lasso regression
         * Ridge regression helps us to reduce only the overfitting in the model while keeping all the features present in the model. It reduces the complexity of the model by shrinking the coefficients whereas Lasso regression helps in reducing the problem of overfitting in the model as well as automatic feature selection.
         * Lasso Regression tends to make coefficients to absolute zero whereas Ridge regression never sets the value of coefficient to absolute zero.
-        <img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im3.png" width="500">
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im3.png) <br/>
 * Details: https://www.analyticsvidhya.com/blog/2021/05/complete-guide-to-regularization-techniques-in-machine-learning/
 
 # Bias vs Variance Tradeoffs
@@ -74,7 +74,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
 *  Variance is the algorithm's tendency to learn random things irrespective of the real signal by fitting highly flexible models that follow the error/noise in the data too closely (overfitting).
 * Bias and variance are also measures of these tendencies. So, 'bias' is also used to denote by how much the average accuracy of the algorithm changes as input/training data changes. Similarly, 'variance' is used to denote how sensitive the algorithm is to the chosen input data.
 * Ideally, we want to choose a model that both accurately captures the regularities in its training data, but also generalizes well to unseen data. Let's use the below showing different curve-fits to the same set of points to see what this means.
-    <img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im4.png" width="500">
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im4.png) <br/>
     We see that the linear (degree = 1) fit is an under-fit:
     1) It does not take into account all the information in the data (high bias), but
     2) It will not change much in the face of a new set of points from the same source (low variance).
@@ -113,18 +113,18 @@ It contains details about the generic concepts in Machine Learning. Below is the
         * https://towardsdatascience.com/class-imbalance-in-machine-learning-problems-a-practical-guide-4fb81eee0041 (best one)
 
 # Loss functions
-<img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im5.png" width="500">
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im5.png) <br/>
 * Loss functions define an objective against which the performance of your model is measured, and the setting of weight parameters learned by the model is determined by minimizing a chosen loss function. There are many loss functions such as:
     * Mean Squared Loss(MSE)
     * cross-entrophy loss
     * Hinge loss
 * Given a particular model, each loss function has particular properties that make it interesting - for example, the (L2-regularized) hinge loss comes with the maximum-margin property, and the mean-squared error when used in conjunction with linear regression comes with convexity guarantees.
     ## Mean squared loss(MSE):
-<img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im6.png" width="500">
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im6.png) <br/>
     ## Cross-Entrophy loss
-<img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im7.PNG" width="500">
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im7.png) <br/>
     ## Hinge loss
-<img src="https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.PNG" width="500">
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im8.png) <br/>
     
 
 
