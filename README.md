@@ -233,15 +233,14 @@ As you can see the model is over-confident till about 0.6 and then under-predict
         * https://machinelearningmastery.com/batch-normalization-for-training-of-deep-neural-networks/
         * https://towardsdatascience.com/batch-normalization-in-3-levels-of-understanding-14c2da90a338
         * https://www.analyticsvidhya.com/blog/2021/03/introduction-to-batch-normalization/
-
-    ## Layer Normalization
-    * Unlike batch normalization, Layer Normalization directly estimates the normalization statistics from the summed inputs to the neurons within a hidden layer so the normalization does not introduce any new dependencies between training cases. It works well for RNNs and improves both the training time and the generalization performance of several existing RNN models. More recently, it has been used with Transformer models.
+## Layer Normalization
+   * Unlike batch normalization, Layer Normalization directly estimates the normalization statistics from the summed inputs to the neurons within a hidden layer so the normalization does not introduce any new dependencies between training cases. It works well for RNNs and improves both the training time and the generalization performance of several existing RNN models. More recently, it has been used with Transformer models.
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im18.png) <br/>
     We compute the layer normalization statistics over all the hidden units in the same layer as follows:
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im19.png) <br/>
     where  denotes the number of hidden units in a layer. Under layer normalization, all the hidden units in a layer share the same normalization terms  and , but different training cases have different normalization terms. Unlike batch normalization, layer normalization does not impose any constraint on the size of the mini-batch and it can be used in the pure online regime with batch size 1.
-    * ** why NLP uses layer normalization**
-        * In NLP, sentence length often varies, it is more suitable to use layer normalization(average across feature dimension)
-        * In Layer normalization, it is calculated for each instance independently exactly same
+   * ** why NLP uses layer normalization**
+    * In NLP, sentence length often varies, it is more suitable to use layer normalization(average across feature dimension)
+    * In Layer normalization, it is calculated for each instance independently exactly same
         computation at training & test time.
-    * Order of batch norm: FC layer -> BN -> RELU -> Dropout -> next FC
+   * Order of batch norm: FC layer -> BN -> RELU -> Dropout -> next FC
