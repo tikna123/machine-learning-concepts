@@ -239,7 +239,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     We compute the layer normalization statistics over all the hidden units in the same layer as follows:
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im19.PNG) <br/>
     where  denotes the number of hidden units in a layer. Under layer normalization, all the hidden units in a layer share the same normalization terms  and , but different training cases have different normalization terms. Unlike batch normalization, layer normalization does not impose any constraint on the size of the mini-batch and it can be used in the pure online regime with batch size 1.
-   * ** why NLP uses layer normalization**
+   * **why NLP uses layer normalization**
         * In NLP, sentence length often varies, it is more suitable to use layer normalization(average across feature dimension)
         * In Layer normalization, it is calculated for each instance independently exactly same
         computation at training & test time.
