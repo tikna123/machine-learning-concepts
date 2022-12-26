@@ -229,7 +229,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
             𝜇_pop : estimated mean of the studied population ;
             σ_pop : estimated standard-deviation of the studied population.
             Those values are computed using all the (𝜇_batch , σ_batch) determined during training, and directly used at evaluation.
-    * Details:
+   * Details:
         * https://machinelearningmastery.com/batch-normalization-for-training-of-deep-neural-networks/
         * https://towardsdatascience.com/batch-normalization-in-3-levels-of-understanding-14c2da90a338
         * https://www.analyticsvidhya.com/blog/2021/03/introduction-to-batch-normalization/
