@@ -212,18 +212,18 @@ As you can see the model is over-confident till about 0.6 and then under-predict
 # Normalization
    ## Batch Normalization
    * Batch-Normalization (BN) is an algorithmic method which makes the training of Deep Neural Networks (DNN) faster and more stable.
-    * It consists of normalizing activation vectors from hidden layers using the first and the second statistical moments (mean and variance) of the current batch. This normalization step is applied right before (or right after) the nonlinear function.
+   * It consists of normalizing activation vectors from hidden layers using the first and the second statistical moments (mean and variance) of the current batch. This normalization step is applied right before (or right after) the nonlinear function.
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im15.png) <br/>
-    * The distribution of the inputs to layers deep in the network may change after each mini-batch when the weights are updated. This can cause the learning algorithm to forever chase a moving target. This change in the distribution of inputs to layers in the network is referred to the technical name “internal covariate shift.”
-    * Batch normalization is a technique for training very deep neural networks that standardizes the inputs to a layer for each mini-batch. This has the effect of stabilizing the learning process and dramatically reducing the number of training epochs required to train deep networks.
-    * Batch normalization allow suboptimal start. We don't need to worry too much about the weight initialization.
-    * **Batch normalization at training**
+   * The distribution of the inputs to layers deep in the network may change after each mini-batch when the weights are updated. This can cause the learning algorithm to forever chase a moving target. This change in the distribution of inputs to layers in the network is referred to the technical name “internal covariate shift.”
+   * Batch normalization is a technique for training very deep neural networks that standardizes the inputs to a layer for each mini-batch. This has the effect of stabilizing the learning process and dramatically reducing the number of training epochs required to train deep networks.
+   * Batch normalization allow suboptimal start. We don't need to worry too much about the weight initialization.
+   * **Batch normalization at training**
         At each hidden layer, Batch Normalization transforms the signal as follow :
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im16.png) <br/>
         The BN layer first determines the mean 𝜇 and the variance σ² of the activation values across the batch.
         It then normalizes the activation vector. That way, each neuron’s output follows a standard normal distribution across the batch.
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im17.png) <br/>
-    * **Batch Normalization at evaluation**
+   * **Batch Normalization at evaluation**
         * Unlike the training phase, we may not have a full batch to feed into the model during the evaluation phase.
             To tackle this issue, we compute (𝜇_pop , σ_pop), such as :
             𝜇_pop : estimated mean of the studied population ;
