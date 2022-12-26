@@ -199,13 +199,13 @@ We can use different metrics to evaluate machine learning models. The choice of 
 * Surprisingly, most models out of the box are not calibrated and their prediction values often tend to be under or over confident. What this means is that, they predict values close to 0 and 1 in many cases where they should not be doing so.
 * To better understand why we need model calibration, let’s look into the previous example whose output value is 0.4 . Ideally, what we would want this value to represent is the fact that if we were to take 10 such pictures and the model classified them as dogs with probabilities around 0.4 , then in reality 4 of those 10 pictures would actually be dog pictures. This is exactly how we should interpret outputs from a calibrated model.
 However, if the model is not calibrated, then we should not expect that this score would mean that 4 out of the 10 pictures will actually be dog pictures.
-## Reliability curve
-* The reliability curve is a nice visual method to identify whether or not our model is calibrated. First we create bins from 0 to 1. Then we divide our data according to the predicted outputs and place them into these bins. For instance if we bin our data in intervals of 0.1, we will have 10 bins between 0 and 1. Say we have 5 data points in the first bin, i.e we have 5 points (0.05,0.05,0.02,0.01,0.02) whose model prediction range lies between 0 and 0.1. Now on the X axis we plot the average of these predictions i.e 0.03 and on the Y axis, we plot the empirical probabilities, i.e the fraction of data points with ground truth equal to 1. Say out of our 5 points, 1 point has the ground truth value 1. In that case our y value will be 1/5 = 0.2. Hence the coordinates of our first point are [0.03,0.2]. We do this for all the bins and connect the points to form a line. We then compare this line to the line
-* y = x and assess the calibration. When the dots are above this line the model is under-predicting the true probability and if they are below the line, model is over-predicting the true probability.
-![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im14.png) <br/>
-As you can see the model is over-confident till about 0.6 and then under-predicts around 0.8
-* Details:
-    * https://towardsdatascience.com/a-comprehensive-guide-on-model-calibration-part-1-of-4-73466eb5e09a
-    * https://wttech.blog/blog/2021/a-guide-to-model-calibration/
-    * https://www.analyticsvidhya.com/blog/2022/10/calibration-of-machine-learning-models/
-    * https://neptune.ai/blog/brier-score-and-model-calibration
+    ## Reliability curve
+        * The reliability curve is a nice visual method to identify whether or not our model is calibrated. First we create bins from 0 to 1. Then we divide our data according to the predicted outputs and place them into these bins. For instance if we bin our data in intervals of 0.1, we will have 10 bins between 0 and 1. Say we have 5 data points in the first bin, i.e we have 5 points (0.05,0.05,0.02,0.01,0.02) whose model prediction range lies between 0 and 0.1. Now on the X axis we plot the average of these predictions i.e 0.03 and on the Y axis, we plot the empirical probabilities, i.e the fraction of data points with ground truth equal to 1. Say out of our 5 points, 1 point has the ground truth value 1. In that case our y value will be 1/5 = 0.2. Hence the coordinates of our first point are [0.03,0.2]. We do this for all the bins and connect the points to form a line. We then compare this line to the line
+        * y = x and assess the calibration. When the dots are above this line the model is under-predicting the true probability and if they are below the line, model is over-predicting the true probability.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im14.png) <br/>
+    As you can see the model is over-confident till about 0.6 and then under-predicts around 0.8
+    * Details:
+        * https://towardsdatascience.com/a-comprehensive-guide-on-model-calibration-part-1-of-4-73466eb5e09a
+        * https://wttech.blog/blog/2021/a-guide-to-model-calibration/
+        * https://www.analyticsvidhya.com/blog/2022/10/calibration-of-machine-learning-models/
+        * https://neptune.ai/blog/brier-score-and-model-calibration
