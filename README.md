@@ -254,3 +254,22 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     * https://coderzcolumn.com/tutorials/machine-learning/simple-guide-to-optuna-for-hyperparameters-optimization-tuning
     * https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
 
+# Optimization Algorithms
+* In Machine learning, for any learning task we need an algorithm that maps the examples of inputs to that of the outputs and an optimization algorithm. An optimization algorithm finds the value of the parameters(weights) that minimize the error when mapping inputs to outputs. These optimization algorithms or optimizers widely affect the accuracy of the ML model. They as well as affect the speed training of the model(specially when you have large amount of training data in deep learning).
+* While training the deep learning optimizers model, we need to modify weights in each epoch and minimize the loss function. An optimizer is a function or an algorithm that modifies the attributes of the neural network, such as weights and learning rate. Thus, it helps in reducing the overall loss and improve the accuracy.
+* Following are the important Optmization algorithms
+    ## Gradient Descent
+        * Gradient descent is a first-order optimization algorithm which is dependent on the first order derivative of a loss function.
+        * It finds the local minima of a differentiable funciton(loss funciton). It is simply used to find the values of a function's parameters (coefficients) that minimize a cost function as far as possible.
+        * we can start by defining the initial parameter's values and from there gradient descent uses calculus to iteratively adjust the values so they minimize the given cost-function. 
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im20.PNG) <br/>
+        The above equation computes the gradient of the cost function J(θ) w.r.t. to the parameters/weights θ for the entire training dataset:
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im21.PNG) <br/>
+        Our aim is to get to the bottom of our graph(Cost vs weights), or to a point where we can no longer move downhill–a local minimum.
+        * Code snippet for Gradient descent
+        ```python
+        for i in range(nb_epochs):   
+            params_grad = evaluate_gradient(loss_function, data, params)           
+            params = params - learning_rate * params_grad
+        ```
+        
