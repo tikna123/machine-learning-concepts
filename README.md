@@ -343,6 +343,8 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     * Again, we set the momentum term γγ to a value of around 0.9. While Momentum first computes the current gradient (small brown vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big brown vector), NAG first makes a big jump in the direction of the previously accumulated gradient (green vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (red vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks.
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im26.png) <br/>
     Both NAG and SGD with momentum algorithms work equally well and share the same advantages and disadvantages.
+    * It checks the lookahead gradient and update based on that. Reduce the oscillations. With vanilla momentum, it can be difficult to converge(overshoot) at minima.
+
 
     ## Adaptive Gradient Descent(AdaGrad)
     * For all the previously discussed algorithms the learning rate remains constant. So the key idea of AdaGrad is to have an adaptive learning rate for each of the weights.
@@ -380,9 +382,15 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im32.png) <br/>
     mt and vt are estimates of the first moment (the mean) and the second moment (the uncentered variance) of the gradients respectively, hence the name of the method.
     * Adam is considered the best algorithm amongst all the algorithms discussed above.
+    * Summary: 
+        * Combination of momentum and rmsprop
+        * RMSProp: adapt the learning rate. Divide the learning rate by accumulated history of gradients(handle sparse feature). Exponential weightage of second moment.
+        * Momentum: Use accumulated history of gradients.
+        * Adam is the best optimizer which works well for most of the practical applications. It takes care of sparse feature(RMSprop). Reduce oscillations. It updates more for sparse features and less for dense features.  When doing the update checks the history of updates by using exponentially weighted average. It reduces the oscillations and very fast compare to vanilla GD. In Adam, we have different learning rates for different features.
+
     * Details(for all optimization algorithms)
         * https://www.kdnuggets.com/2020/12/optimization-algorithms-neural-networks.html
         * https://ruder.io/optimizing-gradient-descent/
         * https://www.analyticsvidhya.com/blog/2021/10/a-comprehensive-guide-on-deep-learning-optimizers/
         * https://d2l.ai/chapter_optimization/
-        * 
+        * https://towardsdatascience.com/complete-guide-to-adam-optimization-1e5f29532c3d
