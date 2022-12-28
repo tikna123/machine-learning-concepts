@@ -90,13 +90,14 @@ It contains details about the generic concepts in Machine Learning. Below is the
     * https://www.quora.com/What-is-an-intuitive-explanation-for-bias-variance-tradeoff
 # Handle Overfitting
 * Regularization
-* Dataset Augmentation(will explain later)
+* Dataset Augmentation
 * Parameter sharing
 * Adding noise to input
 * Adding noise to output
 * Early stopping
 * Ensemble method
 * Dropout
+* k-cross validation(detect overfitting)
 
 # Handle Imbalance datasets
 * There are different methods to handle imbalance datasets
@@ -379,3 +380,9 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im32.png) <br/>
     mt and vt are estimates of the first moment (the mean) and the second moment (the uncentered variance) of the gradients respectively, hence the name of the method.
     * Adam is considered the best algorithm amongst all the algorithms discussed above.
+    * Details(for all optimization algorithms)
+        * https://www.kdnuggets.com/2020/12/optimization-algorithms-neural-networks.html
+        * https://ruder.io/optimizing-gradient-descent/
+        * https://www.analyticsvidhya.com/blog/2021/10/a-comprehensive-guide-on-deep-learning-optimizers/
+        * https://d2l.ai/chapter_optimization/
+        * 
