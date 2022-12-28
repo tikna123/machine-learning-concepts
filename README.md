@@ -318,3 +318,64 @@ As you can see the model is over-confident till about 0.6 and then under-predict
         * The update of MB-SGD is much noisy compared to the update of the GD algorithm.
         * Take a longer time to converge than the GD algorithm.
         * May stuck at local minima.
+    
+    ## SGD with Momentum
+    * SGD has trouble navigating ravines, i.e. areas where the surface curves much more steeply in one dimension than in another [4], which are common around local optima. In these scenarios, SGD oscillates across the slopes of the ravine while only making hesitant progress along the bottom towards the local optimum
+    * It calculates the exponential weighting average of the updates to give more weightage to recent updates compared to the previous update.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im124.png) <br/>
+    * It helps accelerate SGD in the relevant direction and dampens oscillation as shown in the image.It does this by adding a fraction γ of the update vector of the past time step to the current update vector:
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im25.png) <br/>
+    Note: Some implementations exchange the signs in the equations. The momentum term γ
+    is usually set to 0.9 or a similar value. 
+    * Essentially, when using momentum, we push a ball down a hill. The ball accumulates momentum as it rolls downhill, becoming faster and faster on the way (until it reaches its terminal velocity if there is air resistance.The momentum term increases for dimensions whose gradients point in the same directions and reduces updates for dimensions whose gradients change directions. As a result, we gain faster convergence and reduced oscillation.
+    * ***Advantages***
+        * Has all advantages of the SGD.
+        * Converges faster than the GD.
+    * ***Disadvantages***
+        * We need to compute one more variable for each update.
+
+    ## Nesterov Accelerated Gradient (NAG)
+    * The idea of the NAG algorithm is very similar to SGD with momentum with a slight variant.
+    * Momentum may be a good method but if the momentum is too high the algorithm may miss the local minima and may continue to rise up. So, to resolve this issue the NAG algorithm was developed. It is a look ahead method. We know we’ll be using γ.V(t−1) for modifying the weights so, θ−γV(t−1) approximately tells us the future location. Now, we’ll calculate the cost based on this future parameter rather than the current one.
+        V(t) = γ.V(t−1) + α. ∂(J(θ − γV(t−1)))/∂θ
+    and then update the parameters using θ = θ − V(t)
+    * Again, we set the momentum term γγ to a value of around 0.9. While Momentum first computes the current gradient (small brown vector in Image 4) and then takes a big jump in the direction of the updated accumulated gradient (big brown vector), NAG first makes a big jump in the direction of the previously accumulated gradient (green vector), measures the gradient and then makes a correction (red vector), which results in the complete NAG update (red vector). This anticipatory update prevents us from going too fast and results in increased responsiveness, which has significantly increased the performance of RNNs on a number of tasks.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im26.png) <br/>
+    Both NAG and SGD with momentum algorithms work equally well and share the same advantages and disadvantages.
+
+    ## Adaptive Gradient Descent(AdaGrad)
+    * For all the previously discussed algorithms the learning rate remains constant. So the key idea of AdaGrad is to have an adaptive learning rate for each of the weights.
+    * It performs smaller updates for parameters associated with frequently occurring features, and larger updates for parameters associated with infrequently occurring features.
+    * For brevity, we use gt to denote the gradient at time step t. gt,i is then the partial derivative of the objective function w.r.t. to the parameter θi at time step t, η is the learning rate and ∇θ is the partial derivative of loss function J(θi)
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im27.png) <br/>
+    In its update rule, Adagrad modifies the general learning rate η at each time step t for every parameter θi based on the past gradients for θi:
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im28.png) <br/>
+    where Gt is the sum of the squares of the past gradients w.r.t to all parameters θ.
+    The benefit of AdaGrad is that it eliminates the need to manually tune the learning rate; most leave it at a default value of 0.01.
+    Its main weakness is the accumulation of the squared gradients(Gt) in the denominator. Since every added term is positive, the accumulated sum keeps growing during training, causing the learning rate to shrink and becoming infinitesimally small and further resulting in a vanishing gradient problem.
+    * ***Advantages***
+        * No need to update the learning rate manually as it changes adaptively with iterations.
+    * ***Disadvantages***
+        * As the number of iteration becomes very large learning rate decreases to a very small number which leads to slow convergence.
+    
+    ## Ada delta
+    * The problem with the previous algorithm AdaGrad was learning rate becomes very small with a large number of iterations which leads to slow convergence. To avoid this, the AdaDelta algorithm has an idea to take an exponentially decaying average.
+    * Adadelta is a more robust extension of Adagrad that adapts learning rates based on a moving window of gradient updates, instead of accumulating all past gradients. This way, Adadelta continues learning even when many updates have been done. Compared to Adagrad, in the original version of Adadelta, you don't have to set an initial learning rate.
+    * Instead of inefficiently storing w previous squared gradients, the sum of gradients is recursively defined as a decaying average of all past squared gradients. The running average E[g2]t at time step t then depends only on the previous average and current gradient:
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im29.png) <br/>
+    With Adadelta, we do not even need to set a default learning rate, as it has been eliminated from the update rule.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im30.png) <br/>
+
+    ## RMSprop
+    * RMSprop in fact is identical to the first update vector of Adadelta that we derived above:
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im31.png) <br/>
+    * RMSprop as well divides the learning rate by an exponentially decaying average of squared gradients. Hinton suggests γ be set to 0.9, while a good default value for the learning rate η is 0.001.
+    * RMSprop and Adadelta have both been developed independently around the same time stemming from the need to resolve Adagrad's radically diminishing learning rates
+
+    ## Adaptive Moment Estimation (Adam)
+    * Adam can be looked at as a combination of RMSprop and Stochastic Gradient Descent with momentum.
+    * Adam computes adaptive learning rates for each parameter. In addition to storing an exponentially decaying average of past squared gradients vt like Adadelta and RMSprop, Adam also keeps an exponentially decaying average of past gradients mt, similar to momentum. Whereas momentum can be seen as a ball running down a slope, Adam behaves like a heavy ball with friction, which thus prefers flat minima in the error surface.
+    * Hyper-parameters β1, β2 ∈ [0, 1) control the exponential decay rates of these moving averages. We compute the decaying averages of past and past squared gradients mt and vt respectively as follows:
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im32.png) <br/>
+    mt and vt are estimates of the first moment (the mean) and the second moment (the uncentered variance) of the gradients respectively, hence the name of the method.
+    * Adam is considered the best algorithm amongst all the algorithms discussed above.
