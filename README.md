@@ -272,4 +272,49 @@ As you can see the model is over-confident till about 0.6 and then under-predict
             params_grad = evaluate_gradient(loss_function, data, params)           
             params = params - learning_rate * params_grad
         ```
-        
+    * ***Advantages***
+        * Easy to compute, implement and understand
+    * ***Disadvantages***
+        * Weights are changed after calculating the gradient on the whole dataset. So, if the dataset is too large then this may take years to converge to the minima.
+        * may trap into local minima
+        * Requires large memory to calculate the gradient on the whole dataset.
+    
+    ## Stochastic Gradient Descent (SGD)
+    * Gradient Descent has a disadvantage that it requires a lot of memory to load the entire dataset of n-points at a time to compute the derivative of the loss function.
+    * In SGD, model parameters are altered after computation of loss on each training example. So, if the dataset contains 1000 rows SGD will update the model parameters 1000 times in one cycle of dataset instead of one time as in Gradient Descent. 
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im22.png) <br/>
+    In the diagram, we can see that there are more oscillation in SGD as compare to GD. But each step is lot faster to compute for SGD as compare to GD.
+    * Code snippet for Gradient descent
+         ```python
+        for i in range(nb_epochs):
+            np.random.shuffle(data)
+            for example in data:
+                params_grad = evaluate_gradient(loss_function, example, params)
+                params = params - learning_rate * params_grad
+        ```
+    * ***Advantages***
+        * Memory requirement is less compared to the GD algorithm as the derivative is computed taking only 1 point at once.
+    * ***Disadvantages*** 
+        * The time required to complete 1 epoch is large compared to the GD algorithm
+        * Takes a long time to converge.
+        * May stuck at local minima.
+
+    ## Mini Batch Stochastic Gradient Descent (MB-SGD)
+    * MB-SGD overcomes the drawbacks of both SGD and GD. Only a subset of the dataset is used for calculating the loss function. Since we are using a batch of data instead of taking the whole dataset, fewer iterations are needed. That is why the mini-batch gradient descent algorithm is faster than both stochastic gradient descent and batch gradient descent algorithms. 
+    * It needs a hyperparameter that is “mini-batch-size”, which needs to be tuned to achieve the required accuracy. Although, the batch size of 32 is considered to be appropriate for almost every case.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im23.png) <br/>
+
+    * Code snippet for Gradient descent
+         ```python
+        for i in range(nb_epochs):
+            np.random.shuffle(data)
+            for batch in get_batches(data, batch_size=50):
+                params_grad = evaluate_gradient(loss_function, batch, params)
+                params = params - learning_rate * params_grad
+        ```
+    * ***Advantages***
+        * Less time complexity to converge compared to standard SGD algorithm.
+    * ***Disadvantages*** 
+        * The update of MB-SGD is much noisy compared to the update of the GD algorithm.
+        * Take a longer time to converge than the GD algorithm.
+        * May stuck at local minima.
