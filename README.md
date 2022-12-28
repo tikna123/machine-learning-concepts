@@ -239,8 +239,18 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     We compute the layer normalization statistics over all the hidden units in the same layer as follows:
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im19.PNG) <br/>
     where  denotes the number of hidden units in a layer. Under layer normalization, all the hidden units in a layer share the same normalization terms  and , but different training cases have different normalization terms. Unlike batch normalization, layer normalization does not impose any constraint on the size of the mini-batch and it can be used in the pure online regime with batch size 1.
-   * **why NLP uses layer normalization**
+   * **why   NLP uses layer normalization**
         * In NLP, sentence length often varies, it is more suitable to use layer normalization(average across feature dimension)
         * In Layer normalization, it is calculated for each instance independently exactly same
         computation at training & test time.
    * Order of batch norm: FC layer -> BN -> RELU -> Dropout -> next FC
+
+# Hyperparameter tuning
+* The best way to think about hyperparameters is like the settings of an algorithm that can be adjusted to optimize performance, just as we might turn the knobs of an AM radio to get a clear signal (or your parents might have!). While model parameters are learned during training — such as the slope and intercept in a linear regression — hyperparameters must be set by the data scientist before training.
+* Common examples of hyperparameters are penalties for an algorithm (l1 or l2 or elastic net), a number of layers for neural networks, number of epochs, batch size, activation functions, learning rate, optimization algorithms (SGD, adam, etc), loss functions, and many more.
+* Grid search is one Hyperparameters tuning algorithm where we try all possible combinations of hyperparameters. Trying all possible combinations of hyperparameters can take a lot of time (sometimes even days if there is a lot of data) even on powerful computers.
+* Python has libraries like Optuna, scikit-optimize, hyperopt, keras-tuner, bayes_opt, etc specifically designed for faster hyperparameters tuning.
+* Details
+    * https://coderzcolumn.com/tutorials/machine-learning/simple-guide-to-optuna-for-hyperparameters-optimization-tuning
+    * https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
+
