@@ -259,14 +259,14 @@ As you can see the model is over-confident till about 0.6 and then under-predict
 * While training the deep learning optimizers model, we need to modify weights in each epoch and minimize the loss function. An optimizer is a function or an algorithm that modifies the attributes of the neural network, such as weights and learning rate. Thus, it helps in reducing the overall loss and improve the accuracy.
 * Following are the important Optmization algorithms
     ## Gradient Descent
-        * Gradient descent is a first-order optimization algorithm which is dependent on the first order derivative of a loss function.
-        * It finds the local minima of a differentiable funciton(loss funciton). It is simply used to find the values of a function's parameters (coefficients) that minimize a cost function as far as possible.
-        * we can start by defining the initial parameter's values and from there gradient descent uses calculus to iteratively adjust the values so they minimize the given cost-function. 
+       * Gradient descent is a first-order optimization algorithm which is dependent on the first order derivative of a loss function.
+       * It finds the local minima of a differentiable funciton(loss funciton). It is simply used to find the values of a function's parameters (coefficients) that minimize a cost function as far as possible.
+       * we can start by defining the initial parameter's values and from there gradient descent uses calculus to iteratively adjust the values so they minimize the given cost-function. 
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im20.PNG) <br/>
         The above equation computes the gradient of the cost function J(θ) w.r.t. to the parameters/weights θ for the entire training dataset:
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im21.PNG) <br/>
         Our aim is to get to the bottom of our graph(Cost vs weights), or to a point where we can no longer move downhill–a local minimum.
-        * Code snippet for Gradient descent
+       * Code snippet for Gradient descent
         ```python
         for i in range(nb_epochs):   
             params_grad = evaluate_gradient(loss_function, data, params)           
