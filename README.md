@@ -465,3 +465,54 @@ P(Y|X) denotes the conditional probability of an output given an input — for e
     * https://www.analyticsvidhya.com/blog/2021/10/mlops-and-the-importance-of-data-drift-detection/
 
 # Data Leakage
+It can be defined in different ways:
+* Data leakage is when information from outside the training dataset is used to create the model. This additional information can allow the model to learn or know something that it otherwise would not know and in turn invalidate the estimated performance of the mode being constructed.
+* If any other feature whose value would not actually be available in practice at the time you’d want to use the model to make a prediction, is a feature that can introduce leakage to your model.
+* When the data you are using to train a machine learning algorithm happens to have the information you are trying to predict
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im40.png) <br/>
+***how to detect it***
+* In general, if we see that the model which we build is too good to be true (i.,e gives predicted and actual output the same), then we should get suspicious and data leakage cannot be ruled out. At that time, the model might be somehow memorizing the relations between feature and target instead of learning and generalizing it for the unseen data. So, it is advised that before the testing, the prior documented results are weighed against the expected results.
+* While doing the Exploratory Data Analysis (EDA), we may detect features that are very highly correlated with the target variable. Of course, some features are more correlated than others but a surprisingly high correlation needs to be checked and handled carefully. We should pay close attention to those features. So, with the help of EDA, we can examine the raw data through statistical and visualization tools.
+* After the completion of the model training, if features are having very high weights, then we should pay close attention. Those features might be leaky.
+* Details
+    * https://www.analyticsvidhya.com/blog/2021/07/data-leakage-and-its-effect-on-the-performance-of-an-ml-model/
+    * https://machinelearningmastery.com/data-leakage-machine-learning/
+    * https://towardsdatascience.com/data-leakage-in-machine-learning-how-it-can-be-detected-and-minimize-the-risk-8ef4e3a97562
+
+# Handle Outliers
+* An outlier is an observation that lies an abnormal distance from other values in a random sample from a population. There is, of course, a degree of ambiguity. Qualifying a data point as an anomaly leaves it up to the analyst or model to determine what is abnormal—and what to do with such data points.
+* ***Causes of outliers***
+    * Data entry errors
+    * Measurement errors or instrument errors
+    * Sampling errors
+    * Data processing error
+    * Natural novelties in data
+* ***Methods for Detecting outliers***
+    * ***Z-score***
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im41.png) <br/>
+    define a threshold value of 3 and mark the datapoints whose absolute value of Z-score is greater than the threshold as outliers.
+
+    * ***Detecting outliers using the Inter Quantile Range(IQR)***  
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im42.png) <br/>
+    data points that lie 1.5 times of IQR above Q3 and below Q1 are outliers. 
+
+    * ***Box plot***
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im43.png) <br/>
+    Some of the dots on the upper end are a bit further away. You can consider them outliers. It is not giving you the exact points that are outliers but it shows that there are outliers in this column of data.
+
+* ***Dealing with outliers***
+    * Deleting the values: You can delete the outliers if you know that the outliers are wrong or if the reason the outlier was created is never going to happen in the future. For example, there is a data set of peoples ages and the usual ages lie between 0 to 90 but there is data entry off the age 150 which is nearly impossible. So, we can safely drop the value that is 150.
+    * Data transformation: Data transformation is useful when we are dealing with highly skewed data sets. By transforming the variables, we can eliminate the outliers for example taking the natural log of a value reduces the variation caused by the extreme values. This can also be done for data sets that do not have negative values.
+    * Using different analysis methods: You could also use different statistical tests that are not as much impacted by the presence of outliers – for example using median to compare data sets as opposed to mean or use of equivalent nonparametric tests etc.
+    * Valuing the outliers: In case there is a valid reason for the outlier to exist and it is a part of our natural process, we should investigate the cause of the outlier as it can provide valuable clues that can help you better understand your process performance. Outliers may be hiding precious information that could be invaluable to improve your process performance. You need to take the time to understand the special causes that contributed to these outliers. Fixing these special causes can give you significant boost in your process performance and improve customer satisfaction. For example, normal delivery of orders takes 1-2 days, but a few orders took more than a month to complete. Understanding the reason why it took a month and fixing this process can help future customers as they would not be impacted by such large wait times.
+    * Mean/Median imputation: As the mean value is highly influenced by the outliers, it is advised to replace the outliers with the median value.
+    * Quantile based flooring and capping: In this technique, the outlier is capped at a certain value above the 90th percentile value or floored at a factor below the 10th percentile value.
+    * Trimming/Remove the outliers: we remove the outliers from the dataset. Although it is not a good practice to follow.
+* Details:
+    * https://www.sigmamagic.com/blogs/how-to-handle-outliers/
+    * https://cxl.com/blog/outliers/
+    * https://www.analyticsvidhya.com/blog/2021/05/detecting-and-treating-outliers-treating-the-odd-one-out/
+    * https://statisticsbyjim.com/basics/remove-outliers/
+    * https://regenerativetoday.com/a-complete-guide-for-detecting-and-dealing-with-outliers/
+    
+
