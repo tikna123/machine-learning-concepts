@@ -98,6 +98,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
 * Ensemble method
 * Dropout
 * k-cross validation(detect overfitting)
+* Treat the problem as a anamoly detection
 
 # Handle Imbalance datasets
 * There are different methods to handle imbalance datasets
@@ -285,7 +286,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     * In SGD, model parameters are altered after computation of loss on each training example. So, if the dataset contains 1000 rows SGD will update the model parameters 1000 times in one cycle of dataset instead of one time as in Gradient Descent. 
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im22.png) <br/>
     In the diagram, we can see that there are more oscillation in SGD as compare to GD. But each step is lot faster to compute for SGD as compare to GD.
-    * Code snippet for Gradient descent
+    * Code snippet for Stochastic Gradient descent(SGD)
          ```python
         for i in range(nb_epochs):
             np.random.shuffle(data)
@@ -305,7 +306,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
     * It needs a hyperparameter that is “mini-batch-size”, which needs to be tuned to achieve the required accuracy. Although, the batch size of 32 is considered to be appropriate for almost every case.
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im23.png) <br/>
 
-    * Code snippet for Gradient descent
+    * Code snippet for Mini Batch Stochastic Gradient Descent
          ```python
         for i in range(nb_epochs):
             np.random.shuffle(data)
@@ -394,3 +395,73 @@ As you can see the model is over-confident till about 0.6 and then under-predict
         * https://www.analyticsvidhya.com/blog/2021/10/a-comprehensive-guide-on-deep-learning-optimizers/
         * https://d2l.ai/chapter_optimization/
         * https://towardsdatascience.com/complete-guide-to-adam-optimization-1e5f29532c3d
+
+# Early stopping Criteria
+* A problem with training neural networks is in the choice of the number of training epochs to use. Too many epochs can lead to overfitting of the training dataset, whereas too few may result in an underfit model. Early stopping is a method that allows you to specify an arbitrary large number of training epochs and stop training once the model performance stops improving on a hold out validation dataset. 
+* ***Drawbacks***
+    * We need validation dataset to use early stopping.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im33.png) <br/>
+* Details
+    * https://pytorch-lightning.readthedocs.io/en/latest/common/early_stopping.html(pytorch library for early stopping)
+    * https://jeande.medium.com/early-stopping-explained-62eebce1127e
+    * https://machinelearningmastery.com/early-stopping-to-avoid-overtraining-neural-network-models/#:~:text=There%20are%20three%20elements%20to,choice%20of%20model%20to%20use.
+
+# Activation Functions
+* The purpose of activation functions in the neural network is to introduce non-linearity when modelling any learning function. It defines how the weighted sum of the input is transformed into an output from a node or nodes in a layer of the network.
+* All hidden layers typically use the same activation function. The output layer will typically use a different activation function from the hidden layers and is dependent upon the type of prediction required by the model.
+* Activation functions are also typically differentiable, meaning the first-order derivative can be calculated for a given input value. This is required given that neural networks are typically trained using the backpropagation of error algorithm that requires the derivative of prediction error in order to update the weights of the model.
+* Following are the imortant activation functions that is used in neural network.
+## Sigmoid or logistic function
+* It converts or squeezes the hidden layer output between 0 to 1. Therefore, it is used in the models
+where we have to predict the probability as an output. The function is differentiable.
+* It is rarely used nowadays.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im34.png) <br/>
+* ***Drawbacks***
+    * Gradient vanishes if z>>0 or z<<0, resulted in no updates in parameters
+    * Sigmoids are computational heavy.
+    * It is not zero-centered. i.e. if there are two parameters then the updates in the parameters is either both +ve or -ve.
+
+## tanh
+* The range of tanh is between -1 to 1, hence not zero-centered. The advante is that the negative inputs will be maped strongly negative and the zero inputs will be mapped near zero in the tanh graph. The function is differentiable.
+* It is mostly used in NLP.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im35.png) <br/>
+* ***Drawbacks***
+    * It still suffers from vanishing gradient problem.
+    * Computation heavy.
+
+## RELU
+* It is the most used activation function currently.
+* It is mainly used in CNN.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im36.png) <br/>
+* As you can see, the ReLU is half rectified (from bottom). f(z) is zero when z is less than zero and f(z) is equal to z when z is above or equal to zero.
+
+* ***Drawbacks***
+* If the input value(z) is -ve, then neuron is die and once a relu neuron die it will be always 0.
+
+## Leaky RELU
+* It is an attempt to solve the dying ReLU problem
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im37.png) <br/>
+* The leak helps to increase the range of the ReLU function. Usually, the value of a is 0.01 or so.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im38.png) <br/>
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im39.png) <br/>
+
+* Details
+    * https://machinelearningmastery.com/choose-an-activation-function-for-deep-learning/
+    * https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
+
+# Data drifting
+* Machine learning creates static models from the historical data. But, once deployed in production, ML models become unreliable and obsolete and degrade with time. There might be changes in the data distribution in production, thus causing biased predictions. User behavior itself might have changed compared to the baseline data the model was trained on, or there might be additional factors in real-world interactions which would have impacted the predictions. Data drift is a major reason model accuracy decreases over time.
+* Types of data drift: Let’s call the inputs to a model X and its outputs Y. We know that in supervised learning, the training data can be viewed as a set of samples from the joint distribution P(X, Y) and then ML usually models P(Y|X). This joint distribution P(X, Y) can be decomposed in two ways:
+P(X, Y) = P(Y|X)P(X)
+P(X, Y) = P(X|Y)P(Y)
+P(Y|X) denotes the conditional probability of an output given an input — for example, the probability of an email being spam given the content of the email. P(X) denotes the probability density of the input. P(Y) denotes the probability density of the output. Label shift, covariate shift, and concept drift are defined as follows.
+    * ***Covariate shift*** is when P(X) changes, but P(Y|X) remains the same. This refers to the first decomposition of the joint distribution.
+    * ***Label shift*** is when P(Y) changes, but P(X|Y) remains the same. This refers to the second decomposition of the joint distribution.
+    * ***Concept drift*** is when P(Y|X) changes, but P(X) remains the same. This refers to the first decomposition of the joint distribution.
+* Details
+    * https://huyenchip.com/2022/02/07/data-distribution-shifts-and-monitoring.html
+    * https://www.explorium.ai/blog/understanding-and-handling-data-and-concept-drift/
+    * https://www.meesho.io/blog/what-is-data-drift
+    * https://www.analyticsvidhya.com/blog/2021/10/mlops-and-the-importance-of-data-drift-detection/
+
+# Data Leakage
