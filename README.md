@@ -517,3 +517,30 @@ It can be defined in different ways:
     * https://regenerativetoday.com/a-complete-guide-for-detecting-and-dealing-with-outliers/
 
 
+# Data Augmentation
+* Data augmentation is the technique of increasing the size of data used for training a model. For reliable predictions, the deep learning models often require a lot of training data, which is not always available. Therefore, the existing data is augmented in order to make a better generalized model.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im44.png) <br/>
+* Data augmention can be used in Computer vision or Natural language processing.
+* ***Data augmentation techinques in Computer vision***
+    * For data augmentation, making simple alterations on visual data is popular. In addition, generative adversarial networks (GANs) are used to create new synthetic data. Classic image processing activities for data augmentation are:
+        * padding
+        * random rotating
+        * re-scaling
+        * vertical and horizontal flipping
+        * translation ( image is moved along X, Y direction)
+        * cropping
+        * zooming
+        * darkening & brightening/color modification
+        * grayscaling
+        * changing contrast
+        * adding noise
+        * random erasing
+
+* ***Data augmentation techinques in Computer vision***
+    * Data augmentation is not as popular in the NLP domain as in the computer vision domain. Augmenting text data is difficult, due to the complexity of a language. Common methods for data augmentation in NLP are:
+        * EDA methods such as Synonym replacement, Text Substitution (rule-based, ML-based, mask-based and etc.), Random insertion, Random swap, Random deletion and Word & sentence shuffling.
+        * Back Translation: A sentence is translated in one language and then new sentence is translated again in the original language. So, different sentences are created.
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im45.png) <br/>
+        * Text Generation: A generative adversarial networks (GAN) is trained to generate text with a few words.
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im46.png) <br/>
+        Developers can optimize natural language models by training them on web data which contains large volumes of human speech, languages, syntaxes, and sentiments.
