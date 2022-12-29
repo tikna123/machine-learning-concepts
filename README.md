@@ -497,8 +497,9 @@ It can be defined in different ways:
     data points that lie 1.5 times of IQR above Q3 and below Q1 are outliers. 
 
     * ***Box plot***
-    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im43.png) <br/>
     Some of the dots on the upper end are a bit further away. You can consider them outliers. It is not giving you the exact points that are outliers but it shows that there are outliers in this column of data.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im43.png) <br/>
+
 
 * ***Dealing with outliers***
     * Deleting the values: You can delete the outliers if you know that the outliers are wrong or if the reason the outlier was created is never going to happen in the future. For example, there is a data set of peoples ages and the usual ages lie between 0 to 90 but there is data entry off the age 150 which is nearly impossible. So, we can safely drop the value that is 150.
@@ -514,5 +515,5 @@ It can be defined in different ways:
     * https://www.analyticsvidhya.com/blog/2021/05/detecting-and-treating-outliers-treating-the-odd-one-out/
     * https://statisticsbyjim.com/basics/remove-outliers/
     * https://regenerativetoday.com/a-complete-guide-for-detecting-and-dealing-with-outliers/
-    
+
 
