@@ -649,29 +649,29 @@ In the above set, 5- Testing 20 Training. In each iteration, we will get an accu
 * Similarly, the goal of normalization is to change the values of numeric columns in the dataset to a common scale, without distorting differences in the ranges of values. For machine learning, every dataset does not require normalization. It is required only when features have different ranges.
 * For example, consider a data set containing two features, age, and income(x2). Where age ranges from 0–100, while income ranges from 0–100,000 and higher. Income is about 1,000 times larger than age. So, these two features are in very different ranges. When we do further analysis, like multivariate linear regression, for example, the attributed income will intrinsically influence the result more due to its larger value. But this doesn’t necessarily mean it is more important as a predictor. So we normalize the data to bring all the variables to the same range.
 * There are different normalization techniques:
-    * Standard Scalar or Z-score normalization
+    * ***Standard Scalar or Z-score normalization***
         * It transforms each feature to a normal distribution with a mean of 0 and standard deviation of 1. May also be referred to as Z-score transformation.
         * Formula: x’ = (x — μ) / σ , where μ is the mean and σ is the standard deviation
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im53.png) <br/>
-    * MinMax Scalar
+    * ***MinMax Scalar***
         * linear transformation of data that maps the minimum value to maximum value to a certain range (e.g. 0 to 1)
         * x' = (x-x_min)/(x_max-x_min)
         * Scaling to a range is a good choice when both of the following conditions are met:
             * You know the approximate upper and lower bounds on your data with few or no outliers.
             * Your data is approximately uniformly distributed across that range.
         In contrast, you would not use scaling on features such as income, because only a few people have very high incomes. The upper bound of the linear scale for income would be very high, and most people would be squeezed into a small part of the scale.
-    * Clipping
+    * ***Clipping***
         * If your data set contains extreme outliers, you might try feature clipping, which caps all feature values above (or below) a certain value to fixed value. For example, you could clip all temperature values above 40 to be exactly 40.
         * Formula: if x > max, then x’ = max else if x < min, then x’ = min
         * You may apply feature clipping before or after other normalization.
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im54.png) <br/>
 
-    * Log Scaling
+    * ***Log Scaling***
         * Log scaling computes the log of your values to compress a wide range to a narrow range.
         * x′=log(x)
         * Log scaling is helpful when a handful of your values have many points, while most other values have few points. This data distribution is known as the power law distribution. Movie ratings are a good example. In the chart below, most movies have very few ratings (the data in the tail), while a few have lots of ratings (the data in the head). Log scaling changes the distribution, helping to improve linear model performance.
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im55.png) <br/>
-    * Tips
+    * ***Tips***
         * Min-Max scaling is sensitive to outliers. So, it is used when the feature is more-or-less uniformly distributed across a fixed range
         * Clipping is preferred to remove some outliers. It can be used in conjunction with other normalization techniques
         * Log scaling is preferred when there are extreme values. In short, when data distribution is skewed
@@ -685,17 +685,17 @@ In the above set, 5- Testing 20 Training. In each iteration, we will get an accu
 * Most machine learning algorithms cannot handle categorical variables unless we convert them to numerical values
 * Many algorithm’s performances even vary based upon how the categorical variables are encoded
 * A categorical or discrete variable is one that has two or more categories (values). There are two different types of categorical variables:
-    * Nominal: A nominal variable has no intrinsic ordering to its categories. For example, gender is a categorical variable having two categories (Male and Female) with no inherent ordering between them. Another example is Country (India, Australia, America, and so forth).
-    * Ordinal: An ordinal variable has a clear ordering within its categories. For example, consider temperature as a variable with three distinct (but related) categories (low, medium, high). Another example is an education degree (Ph.D., Master’s, or Bachelor’s).
+    * ***Nominal***: A nominal variable has no intrinsic ordering to its categories. For example, gender is a categorical variable having two categories (Male and Female) with no inherent ordering between them. Another example is Country (India, Australia, America, and so forth).
+    * ***Ordinal***: An ordinal variable has a clear ordering within its categories. For example, consider temperature as a variable with three distinct (but related) categories (low, medium, high). Another example is an education degree (Ph.D., Master’s, or Bachelor’s).
 * Different approaches to handle categorical data:
-    * One Hot Encoding
+    * ***One Hot Encoding***
         * This technique is applied for nomial categorical features. In one Hot Encoding method, each category value is converted into a new column and assigned a value as 1 or 0 to the column.
         * This will be done using the pandas get_dummies() function and then we will drop the first column in order to avoid dummy variable trap.
         * Issue: A high cardinality of higher categories will increase the feature space, resulting in the curse of dimensionality.
-    * Ordinal Number Encoding or Label Encoding
+    * ***Ordinal Number Encoding or Label Encoding***
         * It is used for used for ordinal categorical features. In this technique, each unique category value is given an integer value. For instance, “red” equals 1, “green” equals 2 and “blue” equals 3.
         * Domain information can be used to determine the integer value order. For example, we people love Saturday and Sundays, and most hates Monday. In this scenario the mapping for weekdays goes ‘Monday’ is 1, ‘Tuesday’ is 2, ‘Wednesday’ is 3, ‘Thursday’ is 4, ‘Friday’ is 5,’Saturday’ is 6,’Sunday’ is 7.
-    * Target Encoding
+    * ***Target Encoding***
         * A lesser known, but very effective way of handling categorical variables, is Target Encoding. It consists of substituting each group in a categorical feature with the average response in the target variable.
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im56.png) <br/>
         * The process to obtain the Target Encoding is relatively straightforward and it can be summarised as:
@@ -703,7 +703,7 @@ In the above set, 5- Testing 20 Training. In each iteration, we will get an accu
             2. Calculate the average of the target variable per each group
             3. Assign the average to each observation belonging to that group
         * Target Encoding is a powerful solution also because it avoids generating a high number of features, as is the case for One-Hot Encoding, keeping the dimensionality of the dataset as the original one.
-    * Tips:
+    * ***Tips***:
         * For non-ordinal categories, Label Encoding, which consists of substituting a category with a relatively random integer, should be avoided at all costs.
         * Instead, One-Hot-Encoding and Target Encoding are preferable solutions. One-Hot Encoding is probably the most common solution, performing well in real-life scenarios. Target Encoding is a lesser-known but promising technique, which also keeps the dimensionality of the dataset consistent, improving performance.
     * References:
@@ -712,10 +712,10 @@ In the above set, 5- Testing 20 Training. In each iteration, we will get an accu
         * https://towardsdatascience.com/handling-categorical-data-the-right-way-9d1279956fc6
 
 ## Feature Hashing
-    * The Feature Hashing is used to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
-    * Feature hashing works by converting unique tokens into integers. It operates on the exact strings that you provide as input and does not perform any linguistic analysis or preprocessing.
-    * References
-        * https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/feature-hashing
+* The Feature Hashing is used to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
+* Feature hashing works by converting unique tokens into integers. It operates on the exact strings that you provide as input and does not perform any linguistic analysis or preprocessing.
+* References
+    * https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/feature-hashing
 
 # Distributed Training
 ## Data Parallelism
@@ -757,7 +757,7 @@ In a recent and prominent instance, Google AI’s large language model PaLM or P
 ## How to decide sample size(when to stop experiments?)
 * If you run experiments: the best way to avoid repeated significance testing errors is to not test significance repeatedly. Decide on a sample size in advance and wait until the experiment is over before you start believing the “chance of beating original” figures that the A/B testing software gives you. “Peeking” at the data is OK as long as you can restrain yourself from stopping an experiment before it has run its course. I know this goes against something in human nature, so perhaps the best advice is: no peeking!
 * Since you are going to fix the sample size in advance, what sample size should you use? This formula is a good rule of thumb:
-![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/snip1.png) <br/>
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/snip1.PNG) <br/>
 Where δ is the minimum effect you wish to detect and σ2 is the sample variance you expect. Of course you might not know the variance, but if it’s just a binomial proportion you’re calculating (e.g. a percent conversion rate) the variance is given by:
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/snip2.png) <br/>
 * References
