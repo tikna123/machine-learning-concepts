@@ -536,7 +536,7 @@ It can be defined in different ways:
         * adding noise
         * random erasing
 
-* ***Data augmentation techinques in Computer vision***
+* ***Data augmentation techinques in NLP***
     * Data augmentation is not as popular in the NLP domain as in the computer vision domain. Augmenting text data is difficult, due to the complexity of a language. Common methods for data augmentation in NLP are:
         * EDA methods such as Synonym replacement, Text Substitution (rule-based, ML-based, mask-based and etc.), Random insertion, Random swap, Random deletion and Word & sentence shuffling.
         * Back Translation: A sentence is translated in one language and then new sentence is translated again in the original language. So, different sentences are created.
@@ -544,3 +544,27 @@ It can be defined in different ways:
         * Text Generation: A generative adversarial networks (GAN) is trained to generate text with a few words.
         ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im46.png) <br/>
         Developers can optimize natural language models by training them on web data which contains large volumes of human speech, languages, syntaxes, and sentiments.
+    * Libraries for text augmentation
+        * Textattack
+        * Nlpaug
+        * Googletrans
+        * NLP Albumentations
+        * TextAugment
+* Details:
+    * https://research.aimultiple.com/data-augmentation-techniques/
+    * https://research.aimultiple.com/data-augmentation/
+    * https://iq.opengenus.org/data-augmentation/
+    * https://neptune.ai/blog/data-augmentation-nlp
+    * https://www.analyticsvidhya.com/blog/2022/02/text-data-augmentation-in-natural-language-processing-with-texattack/
+
+# K-cross validation
+* Cross validation is an evaluation method used in machine learning to find out how well your machine learning model can predict the outcome of unseen data. It is a method that is easy to comprehend, works well for a limited data sample and also offers an evaluation that is less biased, making it a popular choice.
+* The data sample is split into ‘k’ number of smaller samples, hence the name: K-fold Cross Validation. In each set (fold) training and the test would be performed precisely once during this entire process. It helps us to avoid overfitting. To resist this k-fold cross-validation helps us to build the model is a generalized one.
+* To achieve this K-Fold Cross Validation, we have to split the data set into three sets, Training, Testing, and Validation, with the challenge of the volume of the data.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im47.png) <br/>
+* Let’s have a generalised K value. If K=5, it means, in the given dataset and we are splitting into 5 folds and running the Train and Test. During each run, one fold is considered for testing and the rest will be for training and moving on with iterations, the below pictorial representation would give you an idea of the flow of the fold-defined size.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im48.png) <br/>
+
+
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im49.png) <br/>
+In the above set, 5- Testing 20 Training. In each iteration, we will get an accuracy score and have to sum them and find the mean. Here we can understand how the data is spread in a way of consistency and will make a conclusion whether to for the production with this model (or) NOT.
