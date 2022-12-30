@@ -62,7 +62,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
 * Ridge regression helps us to reduce only the overfitting in the model while keeping all the features present in the model. It reduces the complexity of the model by shrinking the coefficients whereas Lasso regression helps in reducing the problem of overfitting in the model as well as automatic feature selection.
 * Lasso Regression tends to make coefficients to absolute zero whereas Ridge regression never sets the value of coefficient to absolute zero.
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im3.png) <br/>
-* Details: https://www.analyticsvidhya.com/blog/2021/05/complete-guide-to-regularization-techniques-in-machine-learning/
+* References: https://www.analyticsvidhya.com/blog/2021/05/complete-guide-to-regularization-techniques-in-machine-learning/
 
 # Bias vs Variance Tradeoffs
 * Beyond intrinsic uncertainty/noise in the data, any learning algorithm has error that comes from two sources:
@@ -85,7 +85,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
     
     The ideal fit, naturally, is one that captures the regularities in the data enough to be reasonably accurate and generalizable to a different set of points from the same source. Unfortunately, in almost every practical setting, it is nearly impossible to do both simultaneously. Therefore, to achieve good performance on data outside the training set, a tradeoff must be made. This is referred to as the bias-variace trade-off.
 
-    Details: 
+    References: 
     * http://scott.fortmann-roe.com/docs/BiasVariance.html
     * https://www.quora.com/What-is-an-intuitive-explanation-for-bias-variance-tradeoff
 # Handle Overfitting
@@ -107,7 +107,7 @@ It contains details about the generic concepts in Machine Learning. Below is the
     * Use Penalized Models. Like penalized-SVM and penalized-LDA. They put additional cost on the model for making classification mistakes on the minority class during training. These penalties can bias the model towards paying attention to minority class.
     * Try Anomaly Detection techniques and models often used there. Although that would probably be necessary if your data was even more Imbalanced.
     * We can also use One-class classifier. What you are doing here is that you are considering the smaller class an outlier and confidently learn the decision boundary for ONLY the larger class.
-    * Details
+    * References
         * http://www.chioka.in/class-imbalance-problem/
         * https://www.analyticsvidhya.com/blog/2017/03/imbalanced-data-classification/
         * https://classeval.wordpress.com/simulation-analysis/roc-and-precision-recall-with-imbalanced-datasets/
@@ -178,7 +178,7 @@ We can use different metrics to evaluate machine learning models. The choice of 
     * Each point in the ROC curve corresponds to model result(TPR and FPR) given some threshold value.
     * AUC is scale-invariant. It measures how well predictions are ranked, rather than their absolute values.
     * AUC is classification-threshold-invariant. It measures the quality of the model's predictions irrespective of what classification threshold is chosen.
-    * Details
+    * References
         * https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/
         * https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc
         * https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5
@@ -206,7 +206,7 @@ However, if the model is not calibrated, then we should not expect that this sco
 * y = x and assess the calibration. When the dots are above this line the model is under-predicting the true probability and if they are below the line, model is over-predicting the true probability.
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im14.png) <br/>
 As you can see the model is over-confident till about 0.6 and then under-predicts around 0.8
-* Details:
+* References:
     * https://towardsdatascience.com/a-comprehensive-guide-on-model-calibration-part-1-of-4-73466eb5e09a
     * https://wttech.blog/blog/2021/a-guide-to-model-calibration/
     * https://www.analyticsvidhya.com/blog/2022/10/calibration-of-machine-learning-models/
@@ -231,7 +231,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
             𝜇_pop : estimated mean of the studied population ;
             σ_pop : estimated standard-deviation of the studied population.
             Those values are computed using all the (𝜇_batch , σ_batch) determined during training, and directly used at evaluation.
-   * Details:
+   * References:
         * https://machinelearningmastery.com/batch-normalization-for-training-of-deep-neural-networks/
         * https://towardsdatascience.com/batch-normalization-in-3-levels-of-understanding-14c2da90a338
         * https://www.analyticsvidhya.com/blog/2021/03/introduction-to-batch-normalization/
@@ -252,7 +252,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
 * Common examples of hyperparameters are penalties for an algorithm (l1 or l2 or elastic net), a number of layers for neural networks, number of epochs, batch size, activation functions, learning rate, optimization algorithms (SGD, adam, etc), loss functions, and many more.
 * Grid search is one Hyperparameters tuning algorithm where we try all possible combinations of hyperparameters. Trying all possible combinations of hyperparameters can take a lot of time (sometimes even days if there is a lot of data) even on powerful computers.
 * Python has libraries like Optuna, scikit-optimize, hyperopt, keras-tuner, bayes_opt, etc specifically designed for faster hyperparameters tuning.
-* Details
+* References
     * https://coderzcolumn.com/tutorials/machine-learning/simple-guide-to-optuna-for-hyperparameters-optimization-tuning
     * https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74
 
@@ -389,7 +389,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
         * Momentum: Use accumulated history of gradients.
         * Adam is the best optimizer which works well for most of the practical applications. It takes care of sparse feature(RMSprop). Reduce oscillations. It updates more for sparse features and less for dense features.  When doing the update checks the history of updates by using exponentially weighted average. It reduces the oscillations and very fast compare to vanilla GD. In Adam, we have different learning rates for different features.
 
-    * Details(for all optimization algorithms)
+    * References(for all optimization algorithms)
         * https://www.kdnuggets.com/2020/12/optimization-algorithms-neural-networks.html
         * https://ruder.io/optimizing-gradient-descent/
         * https://www.analyticsvidhya.com/blog/2021/10/a-comprehensive-guide-on-deep-learning-optimizers/
@@ -401,7 +401,7 @@ As you can see the model is over-confident till about 0.6 and then under-predict
 * ***Drawbacks***
     * We need validation dataset to use early stopping.
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im33.png) <br/>
-* Details
+* References
     * https://pytorch-lightning.readthedocs.io/en/latest/common/early_stopping.html(pytorch library for early stopping)
     * https://jeande.medium.com/early-stopping-explained-62eebce1127e
     * https://machinelearningmastery.com/early-stopping-to-avoid-overtraining-neural-network-models/#:~:text=There%20are%20three%20elements%20to,choice%20of%20model%20to%20use.
@@ -445,7 +445,7 @@ where we have to predict the probability as an output. The function is different
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im38.png) <br/>
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im39.png) <br/>
 
-* Details
+* References
     * https://machinelearningmastery.com/choose-an-activation-function-for-deep-learning/
     * https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
 
@@ -458,7 +458,7 @@ P(Y|X) denotes the conditional probability of an output given an input — for e
     * ***Covariate shift*** is when P(X) changes, but P(Y|X) remains the same. This refers to the first decomposition of the joint distribution.
     * ***Label shift*** is when P(Y) changes, but P(X|Y) remains the same. This refers to the second decomposition of the joint distribution.
     * ***Concept drift*** is when P(Y|X) changes, but P(X) remains the same. This refers to the first decomposition of the joint distribution.
-* Details
+* References
     * https://huyenchip.com/2022/02/07/data-distribution-shifts-and-monitoring.html
     * https://www.explorium.ai/blog/understanding-and-handling-data-and-concept-drift/
     * https://www.meesho.io/blog/what-is-data-drift
@@ -474,7 +474,7 @@ It can be defined in different ways:
 * In general, if we see that the model which we build is too good to be true (i.,e gives predicted and actual output the same), then we should get suspicious and data leakage cannot be ruled out. At that time, the model might be somehow memorizing the relations between feature and target instead of learning and generalizing it for the unseen data. So, it is advised that before the testing, the prior documented results are weighed against the expected results.
 * While doing the Exploratory Data Analysis (EDA), we may detect features that are very highly correlated with the target variable. Of course, some features are more correlated than others but a surprisingly high correlation needs to be checked and handled carefully. We should pay close attention to those features. So, with the help of EDA, we can examine the raw data through statistical and visualization tools.
 * After the completion of the model training, if features are having very high weights, then we should pay close attention. Those features might be leaky.
-* Details
+* References
     * https://www.analyticsvidhya.com/blog/2021/07/data-leakage-and-its-effect-on-the-performance-of-an-ml-model/
     * https://machinelearningmastery.com/data-leakage-machine-learning/
     * https://towardsdatascience.com/data-leakage-in-machine-learning-how-it-can-be-detected-and-minimize-the-risk-8ef4e3a97562
@@ -509,7 +509,7 @@ It can be defined in different ways:
     * Mean/Median imputation: As the mean value is highly influenced by the outliers, it is advised to replace the outliers with the median value.
     * Quantile based flooring and capping: In this technique, the outlier is capped at a certain value above the 90th percentile value or floored at a factor below the 10th percentile value.
     * Trimming/Remove the outliers: we remove the outliers from the dataset. Although it is not a good practice to follow.
-* Details:
+* References:
     * https://www.sigmamagic.com/blogs/how-to-handle-outliers/
     * https://cxl.com/blog/outliers/
     * https://www.analyticsvidhya.com/blog/2021/05/detecting-and-treating-outliers-treating-the-odd-one-out/
@@ -550,7 +550,7 @@ It can be defined in different ways:
         * Googletrans
         * NLP Albumentations
         * TextAugment
-* Details:
+* References:
     * https://research.aimultiple.com/data-augmentation-techniques/
     * https://research.aimultiple.com/data-augmentation/
     * https://iq.opengenus.org/data-augmentation/
@@ -568,7 +568,7 @@ It can be defined in different ways:
 
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im49.png) <br/>
 In the above set, 5- Testing 20 Training. In each iteration, we will get an accuracy score and have to sum them and find the mean. Here we can understand how the data is spread in a way of consistency and will make a conclusion whether to for the production with this model (or) NOT.
-* Details:
+* References:
     * https://www.kdnuggets.com/2022/07/kfold-cross-validation.html
     * https://www.analyticsvidhya.com/blog/2022/02/k-fold-cross-validation-technique-and-its-essentials/
     * https://machinelearningmastery.com/k-fold-cross-validation/
@@ -607,7 +607,172 @@ In the above set, 5- Testing 20 Training. In each iteration, we will get an accu
             2. Sampling error: The statistical error that occurs when the researcher doesn’t select a sample that represents the entire population of data. When this happens, the results found in the sample don’t represent the results that would have been obtained from the entire population.
         The only way to 100% eliminate the chance of a sampling error is to test 100% of the population. Of course, this is usually impossible. However, the larger the sample size in your data, the less extreme the margin of error will be.
     ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im52.png) <br/>
-    * Details:
+    * References:
         * https://towardsdatascience.com/5-probabilistic-training-data-sampling-methods-in-machine-learning-460f2d6ffd9
         * https://medium.com/analytics-vidhya/sampling-statistical-approach-in-machine-learning-4903c40ebf86
         * https://medium.com/analytics-vidhya/sampling-statistical-approach-in-machine-learning-4903c40ebf86
+
+# Feature Engineering(in predictive modelling)
+## Handle Missing values
+* ***Deleting rows with missing values***
+    * Missing values can be handled by deleting the rows or columns having null values. If columns have more than half of the rows as null then the entire column can be dropped. The rows which are having one or more columns values as null can also be dropped.
+    * A model trained with the removal of all missing values creates a robust model but it can results in loss of a lot of information.
+* ***Impute missing values with Mean/Median***
+    * Columns in the dataset which are having numeric continuous values can be replaced with the mean, median, or mode of remaining values in the column. This method can prevent the loss of data compared to the earlier method. Replacing the above two approximations (mean, median) is a statistical approach to handle the missing values.
+    * It prevent data loss which results in deletion of rows or columns.
+    * Works only with numerical continuous variables.
+    * Can cause data leakage
+* ***Imputation method for categorical columns***
+    * When missing values is from categorical columns (string or numerical) then the missing values can be replaced with the most frequent category. If the number of missing values is very large then it can be replaced with a new category.
+    * It prevent data loss which results in deletion of rows or columns.
+    * Negates the loss of data by adding a unique category.
+    * Addition of new features to the model while encoding, which may result in poor performance
+* ***Other Imputation Methods***
+    * Depending on the nature of the data or data type, some other imputation methods may be more appropriate to impute missing values. For example, for the data variable having longitudinal behavior, it might make sense to use the last valid observation to fill the missing value. This is known as the Last observation carried forward (LOCF) method.
+    * For the time-series dataset variable, it makes sense to use the interpolation of the variable before and after a timestamp for a missing value.
+* ***Using Algorithms that support missing values***
+    * All the machine learning algorithms don’t support missing values but some ML algorithms are robust to missing values in the dataset. The k-NN algorithm can ignore a column from a distance measure when a value is missing. Naive Bayes can also support missing values when making a prediction. These algorithms can be used when the dataset contains null or missing values.
+    * All tree-based algorithms(like XGBoost) automatically handles missing values.
+* ***Prediction of missing values***
+    * In the earlier methods to handle missing values, we do not use the correlation advantage of the variable containing the missing value and other variables. Using the other features which don’t have nulls can be used to predict missing values.
+    * The regression or classification model can be used for the prediction of missing values depending on the nature (categorical or continuous) of the feature having missing value.
+* ***Add separate column or feature(binary column: 1 for missing value otherwise 0) for missing value***
+* ***Create a new category for NAN values(for cateogrical column)***
+* References
+    * https://towardsdatascience.com/7-ways-to-handle-missing-values-in-machine-learning-1a6326adf79e
+    * https://www.analyticsvidhya.com/blog/2021/10/handling-missing-value/
+    * https://medium.com/geekculture/how-to-deal-with-missing-values-in-machine-learning-98e47f025b9c
+    * https://www.freecodecamp.org/news/how-to-handle-missing-data-in-a-dataset/
+    * https://medium.com/analytics-vidhya/ways-to-handle-categorical-column-missing-data-its-implementations-15dc4a56893
+
+## Handle numerical values(feature scaling or Normalization)
+* Similarly, the goal of normalization is to change the values of numeric columns in the dataset to a common scale, without distorting differences in the ranges of values. For machine learning, every dataset does not require normalization. It is required only when features have different ranges.
+* For example, consider a data set containing two features, age, and income(x2). Where age ranges from 0–100, while income ranges from 0–100,000 and higher. Income is about 1,000 times larger than age. So, these two features are in very different ranges. When we do further analysis, like multivariate linear regression, for example, the attributed income will intrinsically influence the result more due to its larger value. But this doesn’t necessarily mean it is more important as a predictor. So we normalize the data to bring all the variables to the same range.
+* There are different normalization techniques:
+    * Standard Scalar or Z-score normalization
+        * It transforms each feature to a normal distribution with a mean of 0 and standard deviation of 1. May also be referred to as Z-score transformation.
+        * Formula: x’ = (x — μ) / σ , where μ is the mean and σ is the standard deviation
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im53.png) <br/>
+    * MinMax Scalar
+        * linear transformation of data that maps the minimum value to maximum value to a certain range (e.g. 0 to 1)
+        * x' = (x-x_min)/(x_max-x_min)
+        * Scaling to a range is a good choice when both of the following conditions are met:
+            * You know the approximate upper and lower bounds on your data with few or no outliers.
+            * Your data is approximately uniformly distributed across that range.
+        In contrast, you would not use scaling on features such as income, because only a few people have very high incomes. The upper bound of the linear scale for income would be very high, and most people would be squeezed into a small part of the scale.
+    * Clipping
+        * If your data set contains extreme outliers, you might try feature clipping, which caps all feature values above (or below) a certain value to fixed value. For example, you could clip all temperature values above 40 to be exactly 40.
+        * Formula: if x > max, then x’ = max else if x < min, then x’ = min
+        * You may apply feature clipping before or after other normalization.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im54.png) <br/>
+
+    * Log Scaling
+        * Log scaling computes the log of your values to compress a wide range to a narrow range.
+        * x′=log(x)
+        * Log scaling is helpful when a handful of your values have many points, while most other values have few points. This data distribution is known as the power law distribution. Movie ratings are a good example. In the chart below, most movies have very few ratings (the data in the tail), while a few have lots of ratings (the data in the head). Log scaling changes the distribution, helping to improve linear model performance.
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im55.png) <br/>
+    * Tips
+        * Min-Max scaling is sensitive to outliers. So, it is used when the feature is more-or-less uniformly distributed across a fixed range
+        * Clipping is preferred to remove some outliers. It can be used in conjunction with other normalization techniques
+        * Log scaling is preferred when there are extreme values. In short, when data distribution is skewed
+        * Z-score or Standardization is useful when there are a few outliers, but not so extreme that you need clipping
+    * References
+        * https://medium.com/analytics-vidhya/data-transformation-for-numeric-features-fb16757382c0
+        * https://towardsai.net/p/data-science/how-when-and-why-should-you-normalize-standardize-rescale-your-data-3f083def38ff#:~:text=Normalization%3A,when%20features%20have%20different%20ranges.
+        
+
+## Handle categorical features
+* Most machine learning algorithms cannot handle categorical variables unless we convert them to numerical values
+* Many algorithm’s performances even vary based upon how the categorical variables are encoded
+* A categorical or discrete variable is one that has two or more categories (values). There are two different types of categorical variables:
+    * Nominal: A nominal variable has no intrinsic ordering to its categories. For example, gender is a categorical variable having two categories (Male and Female) with no inherent ordering between them. Another example is Country (India, Australia, America, and so forth).
+    * Ordinal: An ordinal variable has a clear ordering within its categories. For example, consider temperature as a variable with three distinct (but related) categories (low, medium, high). Another example is an education degree (Ph.D., Master’s, or Bachelor’s).
+* Different approaches to handle categorical data:
+    * One Hot Encoding
+        * This technique is applied for nomial categorical features. In one Hot Encoding method, each category value is converted into a new column and assigned a value as 1 or 0 to the column.
+        * This will be done using the pandas get_dummies() function and then we will drop the first column in order to avoid dummy variable trap.
+        * Issue: A high cardinality of higher categories will increase the feature space, resulting in the curse of dimensionality.
+    * Ordinal Number Encoding or Label Encoding
+        * It is used for used for ordinal categorical features. In this technique, each unique category value is given an integer value. For instance, “red” equals 1, “green” equals 2 and “blue” equals 3.
+        * Domain information can be used to determine the integer value order. For example, we people love Saturday and Sundays, and most hates Monday. In this scenario the mapping for weekdays goes ‘Monday’ is 1, ‘Tuesday’ is 2, ‘Wednesday’ is 3, ‘Thursday’ is 4, ‘Friday’ is 5,’Saturday’ is 6,’Sunday’ is 7.
+    * Target Encoding
+        * A lesser known, but very effective way of handling categorical variables, is Target Encoding. It consists of substituting each group in a categorical feature with the average response in the target variable.
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im56.png) <br/>
+        * The process to obtain the Target Encoding is relatively straightforward and it can be summarised as:
+            1. Group the data by category
+            2. Calculate the average of the target variable per each group
+            3. Assign the average to each observation belonging to that group
+        * Target Encoding is a powerful solution also because it avoids generating a high number of features, as is the case for One-Hot Encoding, keeping the dimensionality of the dataset as the original one.
+    * Tips:
+        * For non-ordinal categories, Label Encoding, which consists of substituting a category with a relatively random integer, should be avoided at all costs.
+        * Instead, One-Hot-Encoding and Target Encoding are preferable solutions. One-Hot Encoding is probably the most common solution, performing well in real-life scenarios. Target Encoding is a lesser-known but promising technique, which also keeps the dimensionality of the dataset consistent, improving performance.
+    * References:
+        * https://www.kdnuggets.com/2021/05/deal-with-categorical-data-machine-learning.html
+        * https://medium.com/analytics-vidhya/how-to-handle-categorical-features-ab65c3cf498e#:~:text=1)%20Using%20the%20categorical%20variable,category%20with%20a%20probability%20ratio.
+        * https://towardsdatascience.com/handling-categorical-data-the-right-way-9d1279956fc6
+
+## Feature Hashing
+    * The Feature Hashing is used to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
+    * Feature hashing works by converting unique tokens into integers. It operates on the exact strings that you provide as input and does not perform any linguistic analysis or preprocessing.
+    * References
+        * https://learn.microsoft.com/en-us/azure/machine-learning/component-reference/feature-hashing
+
+# Distributed Training
+## Data Parallelism
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im57.png) <br/>
+* In data parallelism, the dataset is split into ‘N’ parts, where ‘N’ is the number of GPUs. These parts are then assigned to parallel computational machines. Post that, gradients are calculated for each copy of the model, after which all the models exchange the gradients. In the end, the values of these gradients are averaged. 
+* For every GPU or node, the same parameters are used for the forward propagation. A small batch of data is sent to every node, and the gradient is computed normally and sent back to the main node. There are two strategies using which distributed training is practised called synchronous and asynchronous. 
+    1. Synchronous training
+        * As a part of sync training, the model sends different parts of the data into each accelerator. Every model has a complete copy of the model and is trained solely on a part of the data. Every single part starts forward pass simultaneously and computes a different output and gradient. 
+        * Synchronous training uses an all-reduce algorithm which collects all the trainable parameters from various workers and accelerators. 
+    2. Asynchronous training
+        * While synchronous training can be advantageous in many ways, it is harder to scale and can result in workers staying idle at times. In asynchronous, workers don’t have to wait on each other during downtime in maintenance or a difference in capacity or priorities. Especially if devices are smaller, less reliable and more limited, asynchronous training may be a better choice. If the devices are stronger and with a powerful connection, synchronous training is more suited. 
+## Model parallelism
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im58.png) <br/>
+* In model parallelism, every model is partitioned into ‘N’ parts, just like data parallelism, where ‘N’ is the number of GPUs. Each model is then placed on an individual GPU. The batch of GPUs is then calculated sequentially in this manner, starting with GPU#0, GPU#1 and continuing until GPU#N. This is forward propagation. Backward propagation on the other end begins with the reverse, GPU#N and ends at GPU#0. 
+* Model parallelism has some obvious benefits. It can be used to train a model such that it does not fit into just a single GPU. But when computing is moving in a sequential fashion, for example, when GPU#1 is in computation, the others simply lie idle. This can be resolved by shifting to an asynchronous style of GPU functioning. 
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im59.png) <br/>
+There are multiple mini-batches in progress in the pipeline; first the initial mini-batches update weights, the mini-batches next in the pipeline adopt stale weights to derive gradients. In model parallelism, staleness leads to instability and low model accuracy. A study titled ‘Efficient and Robust Parallel DNN Training through Model Parallelism as Multi-GPU Platform’ that tested model parallelism against data parallelism showed that models using data parallelism increase in their accuracy as training proceeds, but the accuracy starts fluctuating with model parallelism. 
+* The study also demonstrated that data parallelism is expected to have a scalability issue. Model parallelism seemed more apt for DNN models as a bigger number of GPUs was added. 
+In a recent and prominent instance, Google AI’s large language model PaLM or Pathways Language Model used a combination of data and model parallelism as a part of its state-of-the-art training. The model was scaled using data parallelism at the Pod level across two Cloud TPU v4 Pods while each Pod used model parallelism with standard data.
+* References:
+    * https://analyticsindiamag.com/data-parallelism-vs-model-parallelism-how-do-they-differ-in-distributed-training/
+    * https://medium.com/@esaliya/model-parallelism-in-deep-learning-is-not-what-you-think-94d2f81e82ed
+
+# AB tests
+## p-value
+* All statistical tests have a null hypothesis. For most tests, the null hypothesis is that there is no relationship between your variables of interest or that there is no difference among groups. While the alternative hypothesis means there is a difference between groups.
+* The null hypothesis states that there is no relationship between the two variables being studied (one variable does not affect the other). It states the results are due to chance and are not significant in terms of supporting the idea being investigated. Thus, the null hypothesis assumes that whatever you are trying to prove did not happen.
+* ***P-value***: A p-value measures the probability of obtaining the observed results, assuming that the null hypothesis is true.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im60.png) <br/>
+* The level of statistical significance is often expressed as a p-value between 0 and 1. The smaller the p-value, the stronger the evidence that you should reject the null hypothesis.
+* A p-value less than 0.05 (typically ≤ 0.05) is statistically significant. It indicates strong evidence against the null hypothesis, as there is less than a 5% probability the null is correct (and the results are random). Therefore, we reject the null hypothesis, and accept the alternative hypothesis.
+* However, if the p-value is below your threshold of significance (typically p < 0.05), you can reject the null hypothesis, but this does not mean that there is a 95% probability that the alternative hypothesis is true. The p-value is conditional upon the null hypothesis being true, but is unrelated to the truth or falsity of the alternative hypothesis.
+* A p-value higher than 0.05 (> 0.05) is not statistically significant and indicates strong evidence for the null hypothesis. This means we retain the null hypothesis and reject the alternative hypothesis. You should note that you cannot accept the null hypothesis, we can only reject the null or fail to reject it.
+* References
+    * https://www.simplypsychology.org/p-value.html
+    * https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/p-value/
+    * https://www.youtube.com/watch?v=-FtlH4svqx4
+    * https://www.youtube.com/watch?v=KS6KEWaoOOE
+## How to decide sample size(when to stop experiments?)
+* If you run experiments: the best way to avoid repeated significance testing errors is to not test significance repeatedly. Decide on a sample size in advance and wait until the experiment is over before you start believing the “chance of beating original” figures that the A/B testing software gives you. “Peeking” at the data is OK as long as you can restrain yourself from stopping an experiment before it has run its course. I know this goes against something in human nature, so perhaps the best advice is: no peeking!
+* Since you are going to fix the sample size in advance, what sample size should you use? This formula is a good rule of thumb:
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/snip1.png) <br/>
+Where δ is the minimum effect you wish to detect and σ2 is the sample variance you expect. Of course you might not know the variance, but if it’s just a binomial proportion you’re calculating (e.g. a percent conversion rate) the variance is given by:
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/snip2.png) <br/>
+* References
+    * https://www.evanmiller.org/how-not-to-run-an-ab-test.html
+    * https://medium.com/swlh/the-ultimate-guide-to-a-b-testing-part-1-experiment-design-8315a2470c63
+Committing to a sample size completely mitigates the problem described here.
+# Knowledge distillation
+* Knowledge distillation refers to the process of transferring the knowledge from a large unwieldy model or set of models to a single smaller model that can be practically deployed under real-world constraints.
+* Knowledge distillation is performed more commonly on neural network models associated with complex architectures including several layers and model parameters.
+* The challenge of deploying large deep neural network models is especially pertinent for edge devices with limited memory and computational capacity. To tackle this challenge, a model compression method was first proposed to transfer the knowledge from a large model into training a smaller model without any significant loss in performance. This process of learning a small model from a larger model was formalized as a “Knowledge Distillation”
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im61.png) <br/>
+As shown in Figure, in knowledge distillation, a small “student” model learns to mimic a large “teacher” model and leverage the knowledge of the teacher to obtain similar or higher accuracy.
+* ***Major parts of the technique***
+    * ***Teacher Model*** : An ensemble of separately trained models or a single very large model trained with a very strong regularizer such as dropout can be used to create a larger cumbersome model. The cumbersome model is the first to be trained.
+    * ***Student model***: A smaller model that will rely on the Teacher Network’s distilled knowledge. It employs a different type of training called “distillation” to transfer knowledge from the large model to the smaller Student model. The student model is more suitable for deployment because it will be computationally less expensive than the Teacher model while maintaining the same or better accuracy.
+* References
+    * https://neptune.ai/blog/knowledge-distillation
+    * https://analyticsindiamag.com/a-beginners-guide-to-knowledge-distillation-in-deep-learning/
