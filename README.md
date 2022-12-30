@@ -568,3 +568,46 @@ It can be defined in different ways:
 
 ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im49.png) <br/>
 In the above set, 5- Testing 20 Training. In each iteration, we will get an accuracy score and have to sum them and find the mean. Here we can understand how the data is spread in a way of consistency and will make a conclusion whether to for the production with this model (or) NOT.
+* Details:
+    * https://www.kdnuggets.com/2022/07/kfold-cross-validation.html
+    * https://www.analyticsvidhya.com/blog/2022/02/k-fold-cross-validation-technique-and-its-essentials/
+    * https://machinelearningmastery.com/k-fold-cross-validation/
+    * https://towardsdatascience.com/what-is-k-fold-cross-validation-5a7bb241d82f
+
+# Sampling of data
+* When we train a model, we don’t have access to all the corresponding possible data in the world; the data to be used is a subset created by some sampling methods. Data is full of potential biases, possibly due to some human factors during collecting, sampling, or labeling of the data. Since the biases are perpetuated in the models trained on this data, sampling appropriate subsets that can reduce the biases in the data is crucial.
+![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im51.png) <br/>
+* During data sampling, in order to train reliable models, the sampled subsets should represent the real-world data to reduce the selection biases. Following are some of the important probabilistic data sampling methods in model training:
+    * ***Simple Random Sampling***
+        * All the samples in the population have the same chance of being sampled, thus their probabilities form a uniform distribution. For example, if you want to sample 5 out of a 10 population, the probability of every element being selected is 0.5.
+        * The rare classes in the population might not be sampled in the selection. Suppose you want to sample 1% from your data, but a rare class appears only in 0.01% of the population: samples of this rare class might not be selected. In this condition, models trained with the sampled subsets might not know the existence of the rare class.
+    * ***Stratified Sampling***
+        * To avoid the drawbacks of simple random sampling, you can divide the population to several groups according to your requirements, for example the labels, and sample from each group separately. Each group is called a stratum and this method is called stratified sampling.
+        * For example, to sample 1% of a population that has classes A and B, you can divide the population to two groups and sample 1% from the two groups, respectively. In this way, no matter how rare A or B is, the sampled subsets are ensured to contain both of the two classes.
+        * However, a drawback of stratified sampling is that the population is not always dividable. For example, in a multi-label learning task in which each sample has multiple labels, it is challenging to divide the population according to different labels.
+    * ***Weighted Sampling***
+        * In weighted sampling, each sample is assigned a weight—the probability of being sampled. For example, for a population containing classes A and B, if you assign weights of 0.8 to class A and 0.2 to class B, the probabilities of being sampled for class A and B are 80% and 20%, respectively.
+        * Weight sampling can leverage domain expertise, which is important for reducing sampling biases. For example, in training some online learning models, recent data is much more important than old data. Through assigning bigger weights to recent data and smaller weights to old data, you can train a model more reliably.
+    * ***Reservoir Sampling***
+        * It is used to deal with streaming data in online learning models, which is quite popular in products.   
+        * Suppose the data is generated in a sequential streaming manner, for example, a time series, and you can’t fit all the data to the memory, nor do you know how much data will be generated in the future. You need to sample a subset with k samples to train a model, but you don’t know which sample to select because many samples haven’t been generated yet.
+        * Reservoir sampling can deal with this problem that 1) all the samples are selected with equal probability and 2) if you stop the algorithm at any time, the samples are always selected with correct probability. The algorithm contains 3 steps:
+            1. Put the first k samples in a reservoir, which could be an array or a list
+            2. When the nth sample is generated, randomly select a number m within the range of 1 to n. If the selected number m is within the range of 1 to k, replace the mth sample in the reservoir with the nth generated sample, otherwise do nothing.
+            3. Repeat 2 until the stop of algorithm.
+        * We can easily prove that for each newly generated sample, the probability of being selected to the reservoir is k/n. We can also prove that for each sample that is already in the reservoir, the probability of not being replaced is also k/n. Thus when the algorithm stops, all the samples in the reservoir are selected with correct probability.
+    * ***Importance Sampling***
+        *  It allows us to sample from a distribution when we only have access to another distribution.
+        * For example, we want to sample from a distribution P(x), but can’t access it. However, we can access another distribution Q(x). The following equation shows that, in expectation, x sampled from P(x) equals to x sampled from Q(x) weighted by P(x)/Q(x).
+        ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im50.png) <br/>
+        Therefore, instead of sampling from P(x), we can alternatively sample from Q(x) which is accessible, and weight the sampled results by P(x)/Q(x). The results are the same as we directly sample from P(x).
+    * ***Understanding data sampling errors***
+        * When data sampling occurs, it requires those involved to make statistical conclusions about the population from a series of observations. Because these observations often come from estimations or generalizations, errors are bound to occur. The two main types of errors that occur when performing data sampling are:
+            1. Selection bias: The bias that’s introduced by the selection of individuals to be part of the sample that isn’t random. Therefore, the sample cannot be representative of the population that is looking to be analyzed.
+            2. Sampling error: The statistical error that occurs when the researcher doesn’t select a sample that represents the entire population of data. When this happens, the results found in the sample don’t represent the results that would have been obtained from the entire population.
+        The only way to 100% eliminate the chance of a sampling error is to test 100% of the population. Of course, this is usually impossible. However, the larger the sample size in your data, the less extreme the margin of error will be.
+    ![](https://github.com/tikna123/machine-learning-concepts/blob/main/images/im52.png) <br/>
+    * Details:
+        * https://towardsdatascience.com/5-probabilistic-training-data-sampling-methods-in-machine-learning-460f2d6ffd9
+        * https://medium.com/analytics-vidhya/sampling-statistical-approach-in-machine-learning-4903c40ebf86
+        * https://medium.com/analytics-vidhya/sampling-statistical-approach-in-machine-learning-4903c40ebf86
